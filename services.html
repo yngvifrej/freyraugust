@@ -3467,21 +3467,6 @@
 .main-nav a:focus-visible,
 .main-nav a[aria-current="page"] { opacity: 1; }
 
-/* AUDIO becomes an actual page link while keeping the exact triangle geometry. */
-.neon-triangle-labels-outside { z-index: 14 !important; }
-.neon-triangle-labels-outside .label-audio {
-  pointer-events: auto !important;
-  cursor: pointer !important;
-  text-decoration: none !important;
-}
-.neon-triangle-labels-outside .label-audio:hover,
-.neon-triangle-labels-outside .label-audio:focus-visible {
-  text-decoration: underline !important;
-  text-decoration-thickness: 2px !important;
-  text-underline-offset: 5px !important;
-  outline: none !important;
-}
-
 /* Common editorial pages */
 .content-page {
   min-height: calc(100svh - 92px);
@@ -3603,39 +3588,28 @@
 }
 
 
-/* === V34 all modality labels clickable === */
-.neon-triangle-labels-outside { z-index: 20 !important; }
-.neon-triangle-labels-outside a {
-  pointer-events: auto !important;
-  cursor: pointer !important;
-  text-decoration: none !important;
-}
-.neon-triangle-labels-outside a:hover,
-.neon-triangle-labels-outside a:focus-visible {
-  text-decoration: underline !important;
-  text-decoration-thickness: 2px !important;
-  text-underline-offset: 5px !important;
-  outline: none !important;
-}
-
-
-/* === V37 Johannes Itten triangle: primary triad + secondary transitions === */
+/* === V39 tractography RGB system ===
+   Exact RGB primaries are shared by triangle and brain:
+   AUDIO = green #00FF00, TEXT = red #FF0000, VIDEO = blue #0000FF. */
 .neon-triangle-shape {
+  --tract-audio: #00FF00;
+  --tract-text: #FF0000;
+  --tract-video: #0000FF;
   background:
-    radial-gradient(circle at 0% 0%, rgba(242,204,33,.98) 0%, rgba(242,204,33,.76) 25%, rgba(242,204,33,0) 63%),
-    radial-gradient(circle at 100% 0%, rgba(200,59,49,.98) 0%, rgba(200,59,49,.76) 25%, rgba(200,59,49,0) 63%),
-    radial-gradient(circle at 50% 100%, rgba(45,79,157,.98) 0%, rgba(45,79,157,.78) 27%, rgba(45,79,157,0) 65%),
+    radial-gradient(circle at 0% 0%, rgba(0,255,0,1) 0%, rgba(0,255,0,.92) 24%, rgba(0,255,0,0) 64%),
+    radial-gradient(circle at 100% 0%, rgba(255,0,0,1) 0%, rgba(255,0,0,.92) 24%, rgba(255,0,0,0) 64%),
+    radial-gradient(circle at 50% 100%, rgba(0,0,255,1) 0%, rgba(0,0,255,.94) 27%, rgba(0,0,255,0) 66%),
     conic-gradient(
       from 270deg at 50% 33.333333%,
-      #F2CC21 0deg,
-      #D9822B 60deg,
-      #C83B31 120deg,
-      #774C88 180deg,
-      #2D4F9D 240deg,
-      #5B7F3D 300deg,
-      #F2CC21 360deg
+      #00FF00 0deg,
+      #00FF00 90deg,
+      #FF0000 150deg,
+      #FF0000 210deg,
+      #0000FF 270deg,
+      #0000FF 330deg,
+      #00FF00 360deg
     ) !important;
-  filter: saturate(.95) contrast(1.02) !important;
+  filter: saturate(1.08) contrast(1.04) !important;
 }
 /* Labels stay black for Swiss typographic clarity and contrast. */
 .neon-triangle-labels-outside .label-audio,
@@ -3644,6 +3618,35 @@
   color: #111 !important;
 }
 
+</style>
+
+<style>
+/* FINAL modality-link interaction: clickable with no underline, border, pseudo-line or hover decoration. */
+.neon-triangle-labels-outside { z-index: 20 !important; }
+.neon-triangle-labels-outside a,
+.neon-triangle-labels-outside a:link,
+.neon-triangle-labels-outside a:visited,
+.neon-triangle-labels-outside a:hover,
+.neon-triangle-labels-outside a:active,
+.neon-triangle-labels-outside a:focus,
+.neon-triangle-labels-outside a:focus-visible {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-decoration-color: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  outline: none !important;
+}
+.neon-triangle-labels-outside a::before,
+.neon-triangle-labels-outside a::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
 </style>
 </head>
 <body id="top">
@@ -3778,22 +3781,23 @@ function cortexMaterial() {
         vec3 N = normalize(vNormalV);
         vec3 L = normalize(vec3(0.35, 0.62, 1.0));
         float d = max(dot(N, L), 0.0);
-        float relief = 0.80 + 0.20 * d;
-        vec3 c = vColor * relief;
+        float rim = pow(1.0 - abs(N.z), 2.15);
+        float light = 1.12 + 0.34 * d + 0.24 * rim;
+        vec3 c = min(vColor * light, vec3(1.0));
+        c = pow(c, vec3(0.82));
         gl_FragColor = vec4(c, 1.0);
       }
     `
   });
 }
 
-// Johannes Itten primary triad applied to the three modalities.
-// video = blue, audio = yellow, text = red; mixtures generate the secondary hues.
-// These are illustrative modality weights, not measured neural activity.
+// Tractography-style RGB palette shared exactly with the triangle.
+// AUDIO = green, TEXT = red, VIDEO = blue.
 const MODAL_COLORS = {
-  video: new THREE.Color("#2D4F9D"), // Itten blue
-  audio: new THREE.Color("#F2CC21"), // Itten yellow
-  text:  new THREE.Color("#C83B31"), // Itten red
-  neutral: new THREE.Color("#F4F1E8")
+  video: new THREE.Color("#0000FF"),
+  audio: new THREE.Color("#00FF00"),
+  text:  new THREE.Color("#FF0000"),
+  neutral: new THREE.Color("#FFFFFF")
 };
 
 function gaussian(value, center, sigma) {
@@ -3888,24 +3892,24 @@ function applyIllustrativeMultimodalColors(meshes, bounds) {
 
       // Broad illustrative territories rather than hard parcels.
       let video =
-        0.14 +
-        0.95 * gaussian(y, 0.72, 0.42) *
-        gaussian(z, 0.00, 0.88);
+        0.035 +
+        1.20 * gaussian(y, 0.72, 0.40) *
+        gaussian(z, 0.00, 0.84);
 
       let audio =
-        0.13 +
-        0.95 * gaussian(Math.abs(x), 0.72, 0.30) *
-        gaussian(y, 0.04, 0.50) *
-        gaussian(z, -0.30, 0.42);
+        0.035 +
+        1.20 * gaussian(Math.abs(x), 0.72, 0.28) *
+        gaussian(y, 0.04, 0.47) *
+        gaussian(z, -0.30, 0.39);
 
       // +X is left in this model. Text is intentionally left-biased,
       // with both frontal and temporo-parietal lobes represented.
       const leftBias = 0.25 + 0.75 * sigmoid(4.5 * x);
       let text =
-        0.12 +
+        0.035 +
         leftBias * (
-          0.66 * gaussian(y, -0.52, 0.42) * gaussian(z, 0.03, 0.60) +
-          0.55 * gaussian(y,  0.10, 0.48) * gaussian(z, -0.12, 0.50)
+          0.86 * gaussian(y, -0.52, 0.39) * gaussian(z, 0.03, 0.56) +
+          0.72 * gaussian(y,  0.10, 0.44) * gaussian(z, -0.12, 0.46)
         );
 
       // Anatomical label metadata gently reinforces the intended regions.
@@ -3917,9 +3921,9 @@ function applyIllustrativeMultimodalColors(meshes, bounds) {
 
       // Sharpen the dominant modality so the surface reads more like
       // saturated DTI / tractography RGB while retaining smooth mixtures.
-      let wv = Math.pow(video / total, 1.28);
-      let wa = Math.pow(audio / total, 1.28);
-      let wt = Math.pow(text  / total, 1.28);
+      let wv = Math.pow(video / total, 3.05);
+      let wa = Math.pow(audio / total, 3.05);
+      let wt = Math.pow(text  / total, 3.05);
       const sharpTotal = Math.max(wv + wa + wt, 1e-6);
       wv /= sharpTotal;
       wa /= sharpTotal;

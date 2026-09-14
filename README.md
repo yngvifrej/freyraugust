@@ -64,3 +64,27 @@ V38 update:
 - applied an Itten palette to SDG numbers
 - added clearer audio artwork fallbacks for preview mode
 - artwork images are still downloaded during GitHub Pages deployment
+
+
+V39 FINAL DEPLOY:
+- index.html and about.html are identical
+- Services/Sustainability triangle and brain share the exact RGB tractography-style palette: AUDIO #00FF00, TEXT #FF0000, VIDEO #0000FF
+- brain coloration is more saturated and dominant-region weighting is stronger
+- Sustainability keeps the Itten palette for SDG numbers
+- Audio removes technical deployment copy and keeps only music/release content
+
+
+V40 update:
+- removed underline/underscore hover styling from AUDIO, TEXT and VIDEO links
+- modality labels remain clickable with no hover decoration
+
+
+V41 final update:
+- Audio page now uses only large SoundCloud visual players with artwork visible inside the player.
+- Removed separate artwork-image fetching and the standalone OTG release tile.
+- Increased cortical RGB luminance, edge glow and modality dominance while keeping the same tractography RGB primaries as the triangle.
+
+
+V42 final interaction fix:
+- removed legacy modality hover-underline rules from Services and Sustainability
+- AUDIO, TEXT and VIDEO remain clickable but have no underline/underscore, border, pseudo-line or hover decoration
