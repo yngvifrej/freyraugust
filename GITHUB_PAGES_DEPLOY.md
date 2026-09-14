@@ -44,3 +44,6 @@ http://localhost:8000
 ```
 
 Opening the HTML directly with a `file://` URL is not a reliable test of the 3D brain or third-party audio embeds.
+
+
+The deployment now also includes `text.html` and `video.html`.

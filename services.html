@@ -3602,6 +3602,48 @@
   .release-link { min-height: 120px; font-size: 22px; }
 }
 
+
+/* === V34 all modality labels clickable === */
+.neon-triangle-labels-outside { z-index: 20 !important; }
+.neon-triangle-labels-outside a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.neon-triangle-labels-outside a:hover,
+.neon-triangle-labels-outside a:focus-visible {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 5px !important;
+  outline: none !important;
+}
+
+
+/* === V37 Johannes Itten triangle: primary triad + secondary transitions === */
+.neon-triangle-shape {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(242,204,33,.98) 0%, rgba(242,204,33,.76) 25%, rgba(242,204,33,0) 63%),
+    radial-gradient(circle at 100% 0%, rgba(200,59,49,.98) 0%, rgba(200,59,49,.76) 25%, rgba(200,59,49,0) 63%),
+    radial-gradient(circle at 50% 100%, rgba(45,79,157,.98) 0%, rgba(45,79,157,.78) 27%, rgba(45,79,157,0) 65%),
+    conic-gradient(
+      from 270deg at 50% 33.333333%,
+      #F2CC21 0deg,
+      #D9822B 60deg,
+      #C83B31 120deg,
+      #774C88 180deg,
+      #2D4F9D 240deg,
+      #5B7F3D 300deg,
+      #F2CC21 360deg
+    ) !important;
+  filter: saturate(.95) contrast(1.02) !important;
+}
+/* Labels stay black for Swiss typographic clarity and contrast. */
+.neon-triangle-labels-outside .label-audio,
+.neon-triangle-labels-outside .label-text,
+.neon-triangle-labels-outside .label-video {
+  color: #111 !important;
+}
+
 </style>
 </head>
 <body id="top">
@@ -3622,11 +3664,11 @@
 
 <div class="neon-triangle-shape" aria-hidden="true"></div>
 
-<div class="neon-triangle-labels-outside" aria-hidden="true">
-  <a class="label-audio" href="audio.html">AUDIO</a>
-  <span class="label-text">TEXT</span>
-  <span class="label-video">VIDEO</span>
-</div>
+<nav class="neon-triangle-labels-outside" aria-label="Media services">
+  <a class="label-audio" href="audio.html" aria-label="Open Audio">AUDIO</a>
+  <a class="label-text" href="text.html" aria-label="Open Text">TEXT</a>
+  <a class="label-video" href="video.html" aria-label="Open Video">VIDEO</a>
+</nav>
 
 
 <canvas id="brainCanvas" aria-label="Rotatable 3D brain"></canvas>
@@ -3744,14 +3786,14 @@ function cortexMaterial() {
   });
 }
 
-// Neon tractography-inspired RGB palette.
-// video = blue, audio = green, text = red.
+// Johannes Itten primary triad applied to the three modalities.
+// video = blue, audio = yellow, text = red; mixtures generate the secondary hues.
 // These are illustrative modality weights, not measured neural activity.
 const MODAL_COLORS = {
-  video: new THREE.Color("#0057FF"),
-  audio: new THREE.Color("#00FF78"),
-  text:  new THREE.Color("#FF245F"),
-  neutral: new THREE.Color("#F6F8FF")
+  video: new THREE.Color("#2D4F9D"), // Itten blue
+  audio: new THREE.Color("#F2CC21"), // Itten yellow
+  text:  new THREE.Color("#C83B31"), // Itten red
+  neutral: new THREE.Color("#F4F1E8")
 };
 
 function gaussian(value, center, sigma) {
@@ -4083,6 +4125,16 @@ frame();
 </script>
 
 
+
+
+<script>
+/* Keep modality navigation clicks separate from brain drag controls. */
+document.querySelectorAll('.neon-triangle-labels-outside a').forEach((link) => {
+  ['pointerdown','mousedown','touchstart'].forEach((type) => {
+    link.addEventListener(type, (event) => event.stopPropagation(), { passive: true });
+  });
+});
+</script>
 
 </body>
 </html>

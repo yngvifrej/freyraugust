@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fri28aug — About</title>
+<title>fri28aug — Video</title>
 <meta name="description" content="fri28aug"/>
 <style>
 :root{--paper:#fff;--ink:#000;--muted:#707070;--margin:clamp(20px,3.25vw,56px);--gutter:clamp(12px,1.35vw,24px);--max-width:1800px;--font:Helvetica,"Helvetica Neue",Arial,sans-serif;}
@@ -169,76 +169,33 @@
 }
 
 
-/* === V34 About editorial copy === */
-.about-copy {
-  margin-top: clamp(72px, 10vh, 132px);
+/* === V34 Video page === */
+.media-page .page-title { color: #3157a6; }
+.media-intro {
+  margin-top: clamp(72px,10vh,132px);
   padding-top: 18px;
   border-top: 1px solid #000;
-  row-gap: clamp(42px, 7vh, 96px);
+  row-gap: 36px;
 }
-.about-lead {
-  grid-column: 3 / span 8;
+.media-intro p {
+  grid-column: 3 / span 7;
   margin: 0;
-  max-width: 22ch;
-  font-size: clamp(34px, 3.35vw, 56px);
-  line-height: 1.08;
-  letter-spacing: -.035em;
-  font-weight: 400;
+  max-width: 28ch;
+  font-size: clamp(26px,2.5vw,42px);
+  line-height: 1.14;
+  letter-spacing: -.025em;
 }
-.about-block {
+.media-future {
+  grid-column: 9 / span 3;
   margin: 0;
-  font-size: clamp(17px, 1.35vw, 22px);
-  line-height: 1.35;
-  letter-spacing: -.012em;
-}
-.about-block-a { grid-column: 3 / span 4; }
-.about-block-b { grid-column: 8 / span 4; }
-.about-index {
-  grid-column: 1 / span 2;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.3;
-  font-weight: 700;
+  font-size: 11px !important;
+  line-height: 1.35 !important;
   text-transform: uppercase;
-  letter-spacing: .025em;
+  letter-spacing: .03em !important;
   color: var(--muted);
 }
-.about-principles {
-  grid-column: 3 / span 9;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  column-gap: var(--gutter);
-  border-top: 1px solid rgba(0,0,0,.18);
-  padding-top: 14px;
-}
-.about-principle span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .025em;
-  color: var(--muted);
-}
-.about-principle p {
-  margin: 0;
-  font-size: clamp(15px, 1.05vw, 18px);
-  line-height: 1.35;
-}
-@media (max-width: 900px) {
-  .about-lead { grid-column: 2 / span 10; }
-  .about-block-a { grid-column: 2 / span 5; }
-  .about-block-b { grid-column: 7 / span 5; }
-  .about-principles { grid-column: 2 / span 10; }
-}
-@media (max-width: 700px) {
-  .about-copy { margin-top: 56px; }
-  .about-index { grid-column: 1 / span 4; }
-  .about-lead,
-  .about-block-a,
-  .about-block-b,
-  .about-principles { grid-column: 1 / span 4; }
-  .about-principles { grid-template-columns: 1fr; row-gap: 28px; }
+@media(max-width:700px) {
+  .media-intro p,.media-future { grid-column: 1 / span 4; }
 }
 
 </style>
@@ -249,23 +206,13 @@
 <div class="shell">
 <div class="grid header-inner site-nav-grid">
 <a aria-label="fri28aug home" class="brand" href="index.html">fri28aug</a>
-<nav class="main-nav" aria-label="Primary"><a href="about.html" aria-current="page">About</a><a href="services.html">Services</a><a href="sustainability.html">Sustainability</a><a href="news.html">News</a><a href="contact.html">Contact</a></nav>
+<nav class="main-nav" aria-label="Primary"><a href="about.html">About</a><a href="services.html">Services</a><a href="sustainability.html">Sustainability</a><a href="news.html">News</a><a href="contact.html">Contact</a></nav>
 </div>
 </div>
 </header>
-<main class="shell content-page">
-<div class="grid"><p class="page-kicker">fri28aug</p><h1 class="page-title">About</h1></div>
-<section class="grid about-copy" aria-label="About fri28aug">
-<p class="about-index">Independent practice / interdisciplinary work</p>
-<p class="about-lead">fri28aug works across sound, moving image, text, research and digital systems — treating them as connected modes rather than separate outputs.</p>
-<p class="about-block about-block-a">The practice moves between experimental culture, scientific thinking and technology. Projects explore perception, networks and complex systems, with an interest in how relationships can be made visible, audible and understandable without flattening their complexity.</p>
-<p class="about-block about-block-b">Work can take the form of audiovisual pieces, editorial structures, digital prototypes, research interfaces and collaborations. Sustainability is approached in the same way: not as a separate layer, but as a network of interdependent social, ecological and economic questions.</p>
-<div class="about-principles">
-  <div class="about-principle"><span>01 / Modalities</span><p>Audio, text and video are treated as interacting inputs within one creative system.</p></div>
-  <div class="about-principle"><span>02 / Systems</span><p>Research and design are used to navigate networks, dynamics, evidence and uncertainty.</p></div>
-  <div class="about-principle"><span>03 / Sustainability</span><p>Environmental and societal relationships are explored through interconnected rather than isolated goals.</p></div>
-</div>
-</section>
+<main class="shell content-page media-page">
+<div class="grid"><p class="page-kicker">Services / Video</p><h1 class="page-title">Video</h1></div>
+<section class="grid media-intro"><p>Moving image, visual sequences and time-based work within the same multimodal system.</p><p class="media-future">Selected moving-image work will be added here.</p></section>
 </main>
 </div>
 </body>
