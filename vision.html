@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fri28aug — News</title>
+<title>fri28aug — Vision</title>
 <meta name="description" content="fri28aug"/>
 <style>
 :root{--paper:#fff;--ink:#000;--muted:#707070;--margin:clamp(20px,3.25vw,56px);--gutter:clamp(12px,1.35vw,24px);--max-width:1800px;--font:Helvetica,"Helvetica Neue",Arial,sans-serif;}
@@ -166,6 +166,36 @@
   .audio-copy { grid-column: 2 / span 3; }
   .audio-embed { grid-column: 1 / span 4; }
   .release-link { min-height: 120px; font-size: 22px; }
+}
+
+
+/* === V34 Video page === */
+.media-page .page-title { color: #3157a6; }
+.media-intro {
+  margin-top: clamp(72px,10vh,132px);
+  padding-top: 18px;
+  border-top: 1px solid #000;
+  row-gap: 36px;
+}
+.media-intro p {
+  grid-column: 3 / span 7;
+  margin: 0;
+  max-width: 28ch;
+  font-size: clamp(26px,2.5vw,42px);
+  line-height: 1.14;
+  letter-spacing: -.025em;
+}
+.media-future {
+  grid-column: 9 / span 3;
+  margin: 0;
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+  text-transform: uppercase;
+  letter-spacing: .03em !important;
+  color: var(--muted);
+}
+@media(max-width:700px) {
+  .media-intro p,.media-future { grid-column: 1 / span 4; }
 }
 
 </style>
@@ -344,13 +374,13 @@ a{-webkit-touch-callout:none;}
 <div class="shell">
 <div class="grid header-inner site-nav-grid">
 <a aria-label="fri28aug home" class="brand" href="index.html">fri28aug</a>
-<nav class="main-nav" aria-label="Primary"><a href="about.html">About</a><a href="services.html">Services</a><a href="sustainability.html">Sustainability</a><a href="news.html" aria-current="page">News</a><a href="contact.html">Contact</a></nav>
+<nav class="main-nav" aria-label="Primary"><a href="about.html">About</a><a href="services.html">Services</a><a href="sustainability.html">Sustainability</a><a href="news.html">News</a><a href="contact.html">Contact</a></nav>
 </div>
 </div>
 </header>
-<main class="shell content-page">
-<div class="grid"><p class="page-kicker">fri28aug</p><h1 class="page-title">News</h1></div>
-<div class="empty-space" aria-hidden="true"></div>
+<main class="shell content-page media-page">
+<div class="grid"><p class="page-kicker">Services / Vision</p><h1 class="page-title">Vision</h1></div>
+<section class="grid media-intro"><p>Moving image, image sequences and time-based work within the same multimodal system.</p><p class="media-future">Selected moving-image work will be added here.</p></section>
 </main>
 </div>
 </body>

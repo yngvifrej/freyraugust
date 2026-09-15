@@ -6,9 +6,9 @@ This folder is ready to deploy as a static GitHub Pages site.
 
 - `index.html` — home/about landing page
 - `about.html` — About
-- `services.html` — rotating brain + AUDIO/TEXT/VIDEO triangle, no SDG network
+- `services.html` — rotating brain + SOUND/LANGUAGE/VISION triangle, no SDG network
 - `sustainability.html` — rotating brain + SDG network
-- `audio.html` — Audio page with the current SoundCloud/OTG content
+- `sound.html` — Sound page with the current SoundCloud/OTG content
 - `news.html` — News
 - `contact.html` — Contact
 
@@ -46,4 +46,4 @@ http://localhost:8000
 Opening the HTML directly with a `file://` URL is not a reliable test of the 3D brain or third-party audio embeds.
 
 
-The deployment now also includes `text.html` and `video.html`.
+The deployment now also includes `sound.html`, `language.html`, and `vision.html`.
