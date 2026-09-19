@@ -1,440 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>fri28aug — About</title>
-<meta name="description" content="fri28aug"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>frei august — Zürich digital creative agency</title>
+<meta content="frei august is a Zürich-based digital creative agency at the intersection of art, technology, and research." name="description"/>
 <style>
-:root{--paper:#fff;--ink:#000;--muted:#707070;--margin:clamp(20px,3.25vw,56px);--gutter:clamp(12px,1.35vw,24px);--max-width:1800px;--font:Helvetica,"Helvetica Neue",Arial,sans-serif;}
-*,*::before,*::after{box-sizing:border-box} html{background:#fff} body{margin:0;background:#fff;color:#000;font-family:var(--font);-webkit-font-smoothing:antialiased} a{color:inherit;text-decoration:none} .site{min-height:100vh} .shell{width:min(100%,var(--max-width));margin-inline:auto;padding-inline:var(--margin)} .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
-.site-header{padding-top:32px;background:#fff;position:relative;z-index:50} .header-inner{align-items:start;row-gap:10px} .brand{grid-column:1/span 2;font-size:clamp(30px,2.3vw,42px);line-height:1.2;font-weight:700;letter-spacing:-.02em} .main-nav{grid-column:5/span 8;display:flex;justify-content:flex-end;align-items:baseline;gap:clamp(14px,1.65vw,30px);font-size:clamp(12px,.95vw,15px);font-weight:700;line-height:1.2;text-transform:uppercase;white-space:nowrap} .main-nav a{opacity:.44} .main-nav a:hover,.main-nav a:focus-visible,.main-nav a[aria-current="page"]{opacity:1}
-.content-page{min-height:calc(100svh - 92px);padding-top:clamp(76px,10vh,132px);padding-bottom:clamp(72px,10vh,132px)} .page-kicker{grid-column:1/span 2;margin:0;font-size:12px;line-height:1.2;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)} .page-title{grid-column:3/span 10;margin:0;font-size:clamp(72px,9.2vw,156px);line-height:.86;font-weight:700;letter-spacing:-.055em;text-transform:uppercase} .empty-space{min-height:clamp(260px,48vh,620px);border-bottom:1px solid rgba(0,0,0,.14)}
+:root{--paper:#fff;--ink:#111;--muted:#6c6c6c;--rule:rgba(0,0,0,.15);--margin:clamp(18px,3.4vw,58px);--gutter:clamp(10px,1.35vw,24px);--max:1680px;--font:Helvetica,"Helvetica Neue",Arial,sans-serif;}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#fff;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none}
+.shell{width:min(100%,var(--max));margin-inline:auto;padding-inline:max(var(--margin),env(safe-area-inset-left));padding-right:max(var(--margin),env(safe-area-inset-right));}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:max(18px,env(safe-area-inset-top)) 0 12px;border-bottom:1px solid rgba(0,0,0,.06);}
+.brand{grid-column:1/span 3;font-size:clamp(30px,2.35vw,42px);font-weight:700;line-height:1;letter-spacing:-.035em;white-space:nowrap;}
+.main-nav{grid-column:5/span 8;display:flex;justify-content:flex-end;gap:clamp(14px,1.6vw,28px);align-items:baseline;font-size:clamp(11px,.9vw,14px);font-weight:700;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;}
+.main-nav a{opacity:.4;transition:opacity .15s ease}
+.main-nav a:hover,.main-nav a:focus-visible,.main-nav a.is-active{opacity:1}
+.scroll-section{scroll-margin-top:84px;border-bottom:1px solid var(--rule);}
+.about-section{min-height:calc(100svh - 76px);padding-top:clamp(66px,10vh,126px);padding-bottom:clamp(80px,12vh,150px);}
+.section-kicker{grid-column:1/span 2;margin:0;font-size:12px;line-height:1.2;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);}
+.section-title{grid-column:3/span 10;margin:0;font-size:clamp(66px,9vw,150px);line-height:.86;font-weight:700;letter-spacing:-.055em;text-transform:uppercase;}
+.about-copy{margin-top:clamp(64px,10vh,126px);row-gap:clamp(42px,7vh,88px);align-items:start;}
+.about-primary{grid-column:3/span 8;margin:0;font-size:clamp(30px,3.1vw,52px);line-height:1.08;letter-spacing:-.035em;max-width:27ch;}
+.about-wordmark{font-weight:700;letter-spacing:-.035em;white-space:nowrap;}
+.about-secondary{grid-column:7/span 5;margin:0;font-size:clamp(17px,1.35vw,22px);line-height:1.4;letter-spacing:-.012em;max-width:45ch;}
+.mode-row{grid-column:3/span 10;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gutter);padding-top:14px;border-top:1px solid var(--rule);}
+.mode-row a{font-size:clamp(18px,1.5vw,26px);font-weight:700;letter-spacing:-.025em;text-transform:uppercase;}
+.mode-row small{display:block;margin-top:8px;font-size:11px;font-weight:400;line-height:1.35;letter-spacing:.02em;color:var(--muted);text-transform:none;}
+.embed-section{padding-top:clamp(42px,7vh,82px);padding-bottom:0;}
+.embed-heading{align-items:end;padding-bottom:18px;}
+.embed-title{grid-column:3/span 10;margin:0;font-size:clamp(42px,5vw,82px);line-height:.9;font-weight:700;letter-spacing:-.045em;text-transform:uppercase;}
+.embed-frame{display:block;width:100%;height:clamp(620px,100svh,1100px);border:0;background:#fff;}
+.text-section{min-height:70svh;padding-top:clamp(72px,12vh,150px);padding-bottom:clamp(72px,12vh,150px);}
+.text-section .section-title{font-size:clamp(54px,7vw,118px);}
+.section-note{grid-column:8/span 4;margin:clamp(36px,6vh,70px) 0 0;font-size:clamp(16px,1.2vw,20px);line-height:1.4;}
+.contact-line{grid-column:3/span 9;margin:clamp(48px,8vh,92px) 0 0;font-size:clamp(25px,3vw,52px);line-height:1.05;letter-spacing:-.035em;}
+@media(max-width:900px){.brand{grid-column:1/span 4}.main-nav{grid-column:4/span 9;gap:13px;font-size:11px}.section-title{grid-column:2/span 11}.about-primary{grid-column:2/span 10}.about-secondary{grid-column:6/span 6}.mode-row{grid-column:2/span 10}.embed-title{grid-column:2/span 11}}
+@media(max-width:700px){
+  :root{--margin:max(16px,4.5vw);--gutter:10px}
+  .site-header{padding-top:max(14px,env(safe-area-inset-top));padding-bottom:10px}
+  .brand{grid-column:1/span 12;font-size:clamp(28px,8.7vw,40px)}
+  .main-nav{grid-column:1/span 12;justify-content:flex-start;flex-wrap:wrap;gap:8px 13px;margin-top:9px;font-size:11px;white-space:normal}
+  .scroll-section{scroll-margin-top:118px}
+  .about-section{padding-top:48px;min-height:auto}
+  .section-kicker,.section-title,.about-primary,.about-secondary,.mode-row,.embed-title,.section-note,.contact-line{grid-column:1/span 12}
+  .section-title{font-size:clamp(52px,17vw,88px)}
+  .about-copy{margin-top:56px;row-gap:38px}
+  .about-primary{font-size:clamp(28px,8.8vw,42px)}
+  .mode-row{grid-template-columns:1fr;row-gap:24px}
+  .embed-section{padding-top:36px}
+  .embed-frame{height:clamp(540px,100svh,820px)}
+  .text-section{min-height:60svh;padding-top:64px;padding-bottom:80px}
+}
+@media(max-width:390px){.main-nav{font-size:10.5px;gap:7px 10px}.embed-frame{height:100svh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 
-/* === V28 common site navigation === */
-.site-header { z-index: 50; }
-.site-nav-grid { align-items: start; row-gap: 10px; }
-.main-nav {
-  grid-column: 5 / span 8;
-  display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
-  gap: clamp(14px, 1.65vw, 30px);
-  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(12px, .95vw, 15px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: .01em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.main-nav a { opacity: .44; transition: opacity 140ms ease; }
-.main-nav a:hover,
-.main-nav a:focus-visible,
-.main-nav a[aria-current="page"] { opacity: 1; }
-
-/* AUDIO becomes an actual page link while keeping the exact triangle geometry. */
-.neon-triangle-labels-outside { z-index: 14 !important; }
-.neon-triangle-labels-outside .label-audio {
-  pointer-events: auto !important;
-  cursor: pointer !important;
-  text-decoration: none !important;
-}
-.neon-triangle-labels-outside .label-audio:hover,
-.neon-triangle-labels-outside .label-audio:focus-visible {
-  text-decoration: underline !important;
-  text-decoration-thickness: 2px !important;
-  text-underline-offset: 5px !important;
-  outline: none !important;
-}
-
-/* Common editorial pages */
-.content-page {
-  min-height: calc(100svh - 92px);
-  padding-top: clamp(76px, 10vh, 132px);
-  padding-bottom: clamp(72px, 10vh, 132px);
-}
-.page-kicker {
-  grid-column: 1 / span 2;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.page-title {
-  grid-column: 3 / span 10;
-  margin: 0;
-  font-size: clamp(72px, 9.2vw, 156px);
-  line-height: .86;
-  font-weight: 700;
-  letter-spacing: -.055em;
-  text-transform: uppercase;
-}
-.empty-space {
-  min-height: clamp(260px, 48vh, 620px);
-  border-bottom: 1px solid rgba(0,0,0,.14);
-}
-
-/* AUDIO page */
-.audio-page .page-title { color: #66762c; }
-.audio-list {
-  margin-top: clamp(72px, 10vh, 124px);
-  border-top: 1px solid #000;
-}
-.audio-item {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  padding: 18px 0 22px;
-  border-bottom: 1px solid rgba(0,0,0,.20);
-}
-.audio-index {
-  grid-column: 1 / span 1;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-.audio-copy {
-  grid-column: 2 / span 3;
-  align-self: start;
-}
-.audio-copy h2 {
-  margin: 0 0 8px;
-  font-size: clamp(19px, 1.5vw, 25px);
-  line-height: 1.05;
-  font-weight: 700;
-  letter-spacing: -.02em;
-}
-.audio-copy p {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.35;
-  text-transform: uppercase;
-  letter-spacing: .02em;
-  color: var(--muted);
-}
-.audio-embed {
-  grid-column: 5 / span 8;
-}
-.audio-embed iframe {
-  width: 100%;
-  height: 166px;
-  display: block;
-  border: 0;
-  background: #f3f3f3;
-}
-.release-link {
-  display: flex;
-  min-height: 166px;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 18px 0 8px;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  font-size: clamp(21px, 2.1vw, 34px);
-  line-height: 1.05;
-  font-weight: 700;
-  letter-spacing: -.025em;
-}
-.release-link .arrow { font-size: 1.1em; font-weight: 400; }
-
-@media (max-width: 900px) {
-  .main-nav { grid-column: 4 / span 9; gap: 15px; font-size: 12px; }
-  .page-title { grid-column: 2 / span 11; }
-  .audio-copy { grid-column: 2 / span 4; }
-  .audio-embed { grid-column: 6 / span 7; }
-}
-@media (max-width: 700px) {
-  .site-nav-grid .brand { grid-column: 1 / span 4 !important; }
-  .main-nav {
-    grid-column: 1 / span 4;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    margin-top: 8px;
-    white-space: normal;
-  }
-  .content-page { padding-top: 56px; }
-  .page-kicker { grid-column: 1 / span 4; margin-bottom: 28px; }
-  .page-title { grid-column: 1 / span 4; font-size: clamp(58px, 18vw, 94px); }
-  .audio-item { row-gap: 18px; }
-  .audio-index { grid-column: 1 / span 1; }
-  .audio-copy { grid-column: 2 / span 3; }
-  .audio-embed { grid-column: 1 / span 4; }
-  .release-link { min-height: 120px; font-size: 22px; }
-}
-
-
-/* === V34 About editorial copy === */
-.about-copy {
-  margin-top: clamp(72px, 10vh, 132px);
-  padding-top: 18px;
-  border-top: 1px solid #000;
-  row-gap: clamp(42px, 7vh, 96px);
-}
-.about-lead {
-  grid-column: 3 / span 8;
-  margin: 0;
-  max-width: 22ch;
-  font-size: clamp(34px, 3.35vw, 56px);
-  line-height: 1.08;
-  letter-spacing: -.035em;
-  font-weight: 400;
-}
-.about-block {
-  margin: 0;
-  font-size: clamp(17px, 1.35vw, 22px);
-  line-height: 1.35;
-  letter-spacing: -.012em;
-}
-.about-block-a { grid-column: 3 / span 4; }
-.about-block-b { grid-column: 8 / span 4; }
-.about-index {
-  grid-column: 1 / span 2;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.3;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .025em;
-  color: var(--muted);
-}
-.about-principles {
-  grid-column: 3 / span 9;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  column-gap: var(--gutter);
-  border-top: 1px solid rgba(0,0,0,.18);
-  padding-top: 14px;
-}
-.about-principle span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .025em;
-  color: var(--muted);
-}
-.about-principle p {
-  margin: 0;
-  font-size: clamp(15px, 1.05vw, 18px);
-  line-height: 1.35;
-}
-@media (max-width: 900px) {
-  .about-lead { grid-column: 2 / span 10; }
-  .about-block-a { grid-column: 2 / span 5; }
-  .about-block-b { grid-column: 7 / span 5; }
-  .about-principles { grid-column: 2 / span 10; }
-}
-@media (max-width: 700px) {
-  .about-copy { margin-top: 56px; }
-  .about-index { grid-column: 1 / span 4; }
-  .about-lead,
-  .about-block-a,
-  .about-block-b,
-  .about-principles { grid-column: 1 / span 4; }
-  .about-principles { grid-template-columns: 1fr; row-gap: 28px; }
-}
 
 </style>
-
-<style id="v43-responsive-swiss-final">
-/* V43 final responsive Swiss-grid pass — modern Chrome/Edge/Firefox/Safari */
-:root{
-  --swiss-max:1680px;
-  --swiss-margin:clamp(18px,3.4vw,58px);
-  --swiss-gutter:clamp(10px,1.35vw,24px);
-  --swiss-baseline:8px;
-}
-html{
-  width:100%;
-  min-width:320px;
-  overflow-x:hidden;
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-  -webkit-tap-highlight-color:transparent;
-}
-body{
-  width:100%;
-  min-width:320px;
-  overflow-x:hidden;
-  margin:0;
-}
-@supports (overflow:clip){ html,body,.site{overflow-x:clip;} }
-img,svg,canvas,video,iframe{max-width:100%;}
-button,input,textarea,select{font:inherit;}
-a{-webkit-touch-callout:none;}
-.shell{
-  box-sizing:border-box!important;
-  width:min(100%,var(--swiss-max))!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-  padding-left:max(var(--swiss-margin),env(safe-area-inset-left))!important;
-  padding-right:max(var(--swiss-margin),env(safe-area-inset-right))!important;
-}
-.grid{
-  display:grid!important;
-  grid-template-columns:repeat(12,minmax(0,1fr))!important;
-  column-gap:var(--swiss-gutter)!important;
-  min-width:0;
-}
-.site-header{
-  width:100%;
-  padding-top:max(20px,env(safe-area-inset-top))!important;
-  padding-bottom:12px!important;
-}
-.site-header .shell{padding-left:max(var(--swiss-margin),env(safe-area-inset-left))!important;padding-right:max(var(--swiss-margin),env(safe-area-inset-right))!important;}
-.site-nav-grid{align-items:start!important;row-gap:12px!important;}
-.brand{grid-column:1 / span 2!important;justify-self:start!important;white-space:nowrap;}
-.main-nav{grid-column:5 / span 8!important;justify-content:flex-end!important;min-width:0;}
-.main-nav a{white-space:nowrap;}
-
-/* Shared editorial alignment */
-.content-page{padding-bottom:max(clamp(64px,8vh,120px),env(safe-area-inset-bottom))!important;}
-.page-kicker{grid-column:1 / span 2!important;}
-.page-title{grid-column:3 / span 10!important;max-width:100%;overflow-wrap:anywhere;}
-
-/* Brain/triangle pages: centered on a 10-column field within the 12-col grid. */
-.zero-only-hero{
-  width:min(100%,var(--swiss-max))!important;
-  margin-inline:auto!important;
-  padding-left:max(var(--swiss-margin),env(safe-area-inset-left))!important;
-  padding-right:max(var(--swiss-margin),env(safe-area-inset-right))!important;
-  display:grid!important;
-  grid-template-columns:repeat(12,minmax(0,1fr))!important;
-  column-gap:var(--swiss-gutter)!important;
-  align-items:center!important;
-  justify-content:initial!important;
-  min-height:calc(100vh - 92px)!important;
-}
-@supports (height:100svh){.zero-only-hero{min-height:calc(100svh - 92px)!important;}}
-.zero-only-hero .hero-zero-wrap{grid-column:2 / span 10!important;width:100%!important;min-width:0!important;}
-.hero-zero-carousel{width:100%!important;max-width:1280px!important;margin-inline:auto!important;}
-.hero-zero-carousel .carousel-stage,
-.brain-stage{
-  width:100%!important;
-  height:clamp(540px,52vw,820px)!important;
-  min-height:0!important;
-  margin-inline:auto!important;
-  overflow:visible!important;
-  touch-action:pan-y pinch-zoom;
-  -ms-touch-action:pan-y;
-}
-.brain-stage #brainCanvas{width:100%!important;height:100%!important;display:block!important;}
-.neon-triangle-shape,.neon-triangle-labels-outside{left:50%!important;top:50%!important;}
-.neon-triangle-labels-outside a{touch-action:manipulation;}
-
-/* Audio: keep copy + large SoundCloud player aligned to the same 12-col system. */
-.audio-list{width:100%;}
-.audio-item>.grid{align-items:start!important;}
-.soundcloud-visual{min-width:0!important;}
-.soundcloud-visual iframe{width:100%!important;min-height:360px;border:0!important;display:block!important;}
-
-/* Tablet */
-@media (max-width:1024px){
-  :root{--swiss-margin:clamp(18px,3vw,34px);--swiss-gutter:clamp(10px,1.5vw,18px);}
-  .brand{grid-column:1 / span 3!important;}
-  .main-nav{grid-column:4 / span 9!important;gap:12px 18px!important;flex-wrap:wrap!important;}
-  .page-kicker{grid-column:1 / span 2!important;}
-  .page-title{grid-column:3 / span 10!important;}
-  .zero-only-hero .hero-zero-wrap{grid-column:1 / span 12!important;}
-  .hero-zero-carousel{max-width:980px!important;}
-  .hero-zero-carousel .carousel-stage,.brain-stage{height:clamp(520px,70vw,740px)!important;}
-  .neon-triangle-shape,.neon-triangle-labels-outside{width:min(82%,660px)!important;}
-  .soundcloud-visual iframe{height:clamp(380px,54vw,520px)!important;}
-}
-
-/* Mobile */
-@media (max-width:700px){
-  :root{--swiss-margin:max(16px,4.5vw);--swiss-gutter:10px;}
-  .site-header{padding-top:max(16px,env(safe-area-inset-top))!important;padding-bottom:10px!important;}
-  .brand{grid-column:1 / span 12!important;font-size:clamp(30px,9vw,42px)!important;}
-  .main-nav{
-    grid-column:1 / span 12!important;
-    justify-content:flex-start!important;
-    flex-wrap:wrap!important;
-    gap:8px 14px!important;
-    margin-top:2px!important;
-    font-size:12px!important;
-    white-space:normal!important;
-  }
-  .page-kicker{grid-column:1 / span 12!important;margin-bottom:24px!important;}
-  .page-title{grid-column:1 / span 12!important;font-size:clamp(52px,17vw,88px)!important;line-height:.9!important;}
-  .content-page{padding-top:48px!important;}
-  .zero-only-hero{
-    grid-template-columns:repeat(12,minmax(0,1fr))!important;
-    min-height:calc(100vh - 112px)!important;
-    padding-top:10px!important;
-    padding-bottom:max(22px,env(safe-area-inset-bottom))!important;
-  }
-  @supports (height:100svh){.zero-only-hero{min-height:calc(100svh - 112px)!important;}}
-  .zero-only-hero .hero-zero-wrap{grid-column:1 / span 12!important;}
-  .hero-zero-carousel{max-width:620px!important;}
-  .hero-zero-carousel .carousel-stage,.brain-stage{height:clamp(440px,124vw,650px)!important;}
-  .neon-triangle-shape,.neon-triangle-labels-outside{width:min(78vw,500px)!important;max-width:500px!important;}
-  .neon-triangle-labels-outside{font-size:clamp(12px,3.5vw,17px)!important;}
-  .neon-triangle-labels-outside .label-audio{transform:translate(-78%,-112%)!important;}
-  .neon-triangle-labels-outside .label-text{transform:translate(78%,-112%)!important;}
-  .neon-triangle-labels-outside .label-video{transform:translate(-50%,132%)!important;}
-  .audio-index{grid-column:1 / span 1!important;}
-  .audio-copy{grid-column:2 / span 11!important;}
-  .soundcloud-visual{grid-column:1 / span 12!important;margin-top:12px!important;}
-  .soundcloud-visual iframe{height:min(112vw,520px)!important;min-height:360px!important;}
-}
-
-/* Small phones */
-@media (max-width:390px){
-  :root{--swiss-margin:14px;--swiss-gutter:8px;}
-  .main-nav{gap:7px 11px!important;font-size:11px!important;}
-  .hero-zero-carousel .carousel-stage,.brain-stage{height:clamp(410px,132vw,560px)!important;}
-  .neon-triangle-shape,.neon-triangle-labels-outside{width:min(74vw,420px)!important;}
-  .soundcloud-visual iframe{min-height:330px!important;height:108vw!important;}
-}
-
-/* Short landscape phones/tablets */
-@media (max-height:560px) and (orientation:landscape){
-  .site-header{padding-top:10px!important;padding-bottom:6px!important;}
-  .zero-only-hero{min-height:auto!important;padding-top:8px!important;padding-bottom:14px!important;}
-  .hero-zero-carousel .carousel-stage,.brain-stage{height:clamp(300px,82vh,460px)!important;}
-  .neon-triangle-shape,.neon-triangle-labels-outside{width:min(62%,600px)!important;}
-}
-
-/* Accessibility / browser behavior */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important;}
-}
+<script src="assets/js/palette-init.js"></script>
+<link href="assets/css/swiss-system.css" rel="stylesheet"/>
+<style id="v56-area17-informed-refinement">
+.section-title,.embed-title{font-size:var(--type-display)!important;line-height:.91!important;letter-spacing:-.05em!important;}
+.text-section .section-title{font-size:var(--type-display)!important;}
+.site-header{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
 </style>
-
 </head>
 <body>
-<div class="site">
 <header class="site-header">
-<div class="shell">
-<div class="grid header-inner site-nav-grid">
-<a aria-label="fri28aug home" class="brand" href="index.html">fri28aug</a>
-<nav class="main-nav" aria-label="Primary"><a href="about.html" aria-current="page">About</a><a href="services.html">Services</a><a href="sustainability.html">Sustainability</a><a href="news.html">News</a><a href="contact.html">Contact</a></nav>
-</div>
-</div>
+<div class="shell"><div class="grid">
+<a aria-label="frei august home" class="brand" href="#about">frei august</a>
+<nav aria-label="Primary" class="main-nav">
+<a data-section="about" href="#about">About</a>
+<a data-section="services" href="#services">Services</a>
+<a data-section="sustainability" href="#sustainability">Sustainability</a>
+<a data-section="news" href="#news">News</a>
+<a data-section="contact" href="#contact">Contact</a>
+</nav>
+</div></div>
 </header>
-<main class="shell content-page">
-<div class="grid"><p class="page-kicker">fri28aug</p><h1 class="page-title">About</h1></div>
-<section class="grid about-copy" aria-label="About fri28aug">
-<p class="about-index">Independent practice / interdisciplinary work</p>
-<p class="about-lead">fri28aug works across sound, language, moving image, research and digital systems — treating them as connected modes rather than separate outputs.</p>
-<p class="about-block about-block-a">The practice moves between experimental culture, scientific thinking and technology. Projects explore perception, networks and complex systems, with an interest in how relationships can be made visible, audible and understandable without flattening their complexity.</p>
-<p class="about-block about-block-b">Work can take the form of audiovisual pieces, editorial structures, digital prototypes, research interfaces and collaborations. Sustainability is approached in the same way: not as a separate layer, but as a network of interdependent social, ecological and economic questions.</p>
-<div class="about-principles">
-  <div class="about-principle"><span>01 / Modalities</span><p>Sound, language and moving image are treated as interacting inputs within one creative system.</p></div>
-  <div class="about-principle"><span>02 / Systems</span><p>Research and design are used to navigate networks, dynamics, evidence and uncertainty.</p></div>
-  <div class="about-principle"><span>03 / Sustainability</span><p>Environmental and societal relationships are explored through interconnected rather than isolated goals.</p></div>
+<main>
+<section class="scroll-section about-section shell" id="about">
+<div class="grid"><p class="section-kicker">Zürich / Digital creative agency</p><h1 class="section-title">About</h1></div>
+<div class="grid about-copy">
+<p class="about-primary"><span class="about-wordmark">frei august</span> is a Zürich-based digital creative agency at the intersection of art, technology, and research. Through visual communication, sound, music, audiovisual production, digital art, creative technology and performance, we translate complex ideas into visual, sonic and digital experiences.</p>
+<p class="about-secondary">Our work explores how image, sound, language and symbols interact within complex dynamic systems to shape perception, meaning and conscious experience. Through research, experimentation and emerging technologies, we co-create across cultural, scientific, educational and commercial contexts, fostering interdisciplinary collaboration, inclusive communities, public engagement, sustainability and wellbeing.</p>
+<div class="mode-row">
+<a href="sound.html">Sound<small>Sound, music and sonic experience.</small></a>
+<a href="language.html">Language<small>Language, semantics and symbolic systems.</small></a>
+<a href="vision.html">Vision<small>Visual communication and moving image.</small></a>
+</div>
 </div>
 </section>
+<section class="scroll-section embed-section" id="services">
+<div class="shell grid embed-heading"><p class="section-kicker">Practice</p><h2 class="embed-title">Services</h2></div>
+<iframe class="embed-frame" loading="lazy" src="services.html?embed=1" title="frei august services — interactive brain and modality system"></iframe>
+</section>
+<section class="scroll-section embed-section" id="sustainability">
+<div class="shell grid embed-heading"><p class="section-kicker">Interdependent systems</p><h2 class="embed-title">Sustainability</h2></div>
+<iframe class="embed-frame" loading="lazy" src="sustainability.html?embed=1" title="frei august sustainability — SDG network"></iframe>
+</section>
+<section class="scroll-section text-section shell" id="news">
+<div class="grid"><p class="section-kicker">Updates</p><h2 class="section-title">News</h2><p class="section-note">Projects, releases, collaborations and research-led work will appear here.</p></div>
+</section>
+<section class="scroll-section text-section shell" id="contact">
+<div class="grid"><p class="section-kicker">Zürich</p><h2 class="section-title">Contact</h2><p class="contact-line">For projects, collaborations and commissions.</p></div>
+</section>
 </main>
-</div>
+<script>
+const links=[...document.querySelectorAll('.main-nav a[data-section]')];
+const sections=links.map(a=>document.getElementById(a.dataset.section)).filter(Boolean);
+const observer=new IntersectionObserver(entries=>{
+  const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+  if(!visible)return;
+  links.forEach(a=>a.classList.toggle('is-active',a.dataset.section===visible.target.id));
+},{rootMargin:'-20% 0px -55% 0px',threshold:[0,.2,.5,.8]});
+sections.forEach(s=>observer.observe(s));
+</script>
 </body>
 </html>

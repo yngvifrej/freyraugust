@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>fri28aug — Sustainability</title>
+<title>frei august — Sustainability</title>
 <meta content="Independent creative studio." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -1501,7 +1501,7 @@
 }
 
 
-/* === fri28aug brain variants: only brain/legend presentation changes === */
+/* === frei august brain variants: only brain/legend presentation changes === */
 .brain-ui { display:none !important; }
 
 .brain-stage {
@@ -3842,14 +3842,78 @@ a{-webkit-touch-callout:none;}
 }
 </style>
 
+
+<style id="v47-swiss-primary-palette">
+/* Calm Swiss editorial palette shared exactly by triangle and brain. */
+.neon-triangle-shape {
+  --tract-audio:#00FF00;
+  --tract-text:#FF0000;
+  --tract-video:#0000FF;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(58,146,45,1) 0%, rgba(58,146,45,.97) 25%, rgba(58,146,45,0) 65%),
+    radial-gradient(circle at 100% 0%, rgba(216,80,57,1) 0%, rgba(216,80,57,.97) 25%, rgba(216,80,57,0) 65%),
+    radial-gradient(circle at 50% 100%, rgba(20,181,193,1) 0%, rgba(20,181,193,.98) 28%, rgba(20,181,193,0) 67%),
+    conic-gradient(from 270deg at 50% 33.333333%,
+      #2D6024 0deg, #2D6024 92deg,
+      #C04621 150deg, #C04621 210deg,
+      #019FBC 270deg, #019FBC 330deg,
+      #2D6024 360deg) !important;
+  filter:saturate(.94) contrast(1.025) brightness(1.015) !important;
+}
+.neon-triangle-labels-outside .label-audio,
+.neon-triangle-labels-outside .label-text,
+.neon-triangle-labels-outside .label-video { color:#111 !important; }
+</style>
+
+<style id="v47-embed-mode">
+html.embed-page .site-header{display:none!important;}
+html.embed-page body{overflow:hidden!important;}
+html.embed-page .site{min-height:0!important;}
+html.embed-page .zero-only-hero{min-height:100vh!important;padding-top:0!important;padding-bottom:0!important;}
+@supports (height:100svh){html.embed-page .zero-only-hero{min-height:100svh!important;}}
+html.embed-page .hero-zero-carousel .carousel-stage,
+html.embed-page .brain-stage{height:100vh!important;max-height:none!important;}
+@supports (height:100svh){html.embed-page .hero-zero-carousel .carousel-stage,html.embed-page .brain-stage{height:100svh!important;}}
+</style>
+<script>if(new URLSearchParams(location.search).get('embed')==='1'){document.documentElement.classList.add('embed-page');}</script>
+
+
+<style>
+/* V49 — restrained Swiss primary system */
+:root{
+  --frei-paper:#FFFFFF;
+  --frei-ink:#161616;
+  --tract-audio:#00FF00;
+  --tract-text:#FF0000;
+  --tract-video:#0000FF;
+}
+html,body,.site,.site-header{background:#fff!important;color:var(--frei-ink)!important;}
+.neon-triangle-labels-outside .label-audio{color:var(--tract-audio)!important;}
+.neon-triangle-labels-outside .label-text{color:var(--tract-text)!important;}
+.neon-triangle-labels-outside .label-video{color:var(--tract-video)!important;}
+.neon-triangle-shape{
+  background:conic-gradient(from 270deg at 50% 33.333333%,
+    #2D6024 0deg,#2D6024 92deg,
+    #C04621 150deg,#C04621 210deg,
+    #019FBC 270deg,#019FBC 330deg,
+    #2D6024 360deg)!important;
+}
+</style>
+
+<script src="assets/js/palette-init.js"></script>
+<link rel="stylesheet" href="assets/css/swiss-system.css"/>
+<style id="v55-master-grid-palette-lock">
+:root{--palette-sound:#00FF00;--palette-language:#FF0000;--palette-vision:#0000FF;}
+html,body,.site,.site-header{background:#fff!important;}
+</style>
 </head>
 <body id="top">
 <div class="site">
 <header class="site-header">
 <div class="shell">
 <div class="grid header-inner site-nav-grid">
-<a aria-label="fri28aug home" class="brand" href="index.html">fri28aug</a>
-<nav class="main-nav" aria-label="Primary"><a href="about.html">About</a><a href="services.html">Services</a><a href="sustainability.html" aria-current="page">Sustainability</a><a href="news.html">News</a><a href="contact.html">Contact</a></nav>
+<a aria-label="frei august home" class="brand" href="index.html#about">frei august</a>
+<nav class="main-nav" aria-label="Primary"><a href="index.html#about">About</a><a href="index.html#services">Services</a><a href="index.html#sustainability">Sustainability</a><a href="index.html#news">News</a><a href="index.html#contact">Contact</a></nav>
 </div>
 </div>
 </header>
@@ -3979,17 +4043,17 @@ function cortexMaterial() {
         vec3 L = normalize(vec3(0.35, 0.62, 1.0));
         float d = max(dot(N, L), 0.0);
         float rim = pow(1.0 - abs(N.z), 2.15);
-        float light = 1.12 + 0.34 * d + 0.24 * rim;
+        float light = 1.08 + 0.34 * d + 0.20 * rim;
         vec3 c = min(vColor * light, vec3(1.0));
-        c = pow(c, vec3(0.82));
+        c = pow(c, vec3(0.84));
         gl_FragColor = vec4(c, 1.0);
       }
     `
   });
 }
 
-// Tractography-style RGB palette shared exactly with the triangle.
-// AUDIO = green, TEXT = red, VIDEO = blue.
+// Exact artwork-sampled palette shared with the triangle.
+// SOUND = #2D6024, LANGUAGE = #C04621, VISION = #019FBC.
 const MODAL_COLORS = {
   video: new THREE.Color("#0000FF"),
   audio: new THREE.Color("#00FF00"),
