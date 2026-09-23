@@ -1,4 +1,4 @@
-# fri28aug — full GitHub Pages deployment package
+# frei august — full GitHub Pages deployment package
 
 This is the complete deployable site package.
 
@@ -110,3 +110,52 @@ V46 final responsive pass:
 - no moving-image works were invented or embedded; the page remains ready for supplied media
 - added extra <=480px and <=350px breakpoints so SOUND/LANGUAGE/VISION labels stay inside narrow phone viewports
 - preserves 12-column desktop/tablet grid, mobile full-width grid, safe-area insets, short-landscape handling, reduced-motion handling and responsive SoundCloud embeds
+
+
+V47: frei august brand; scroll-first index/about; Swiss primary palette; OTG Ayakashi Committee EP image/link added to Sound.
+
+
+V48 update:
+- About paragraph uses the frei august wordmark treatment for the company name.
+- Triangle and brain now share a calmer Swiss editorial palette: ochre #D2B14B, warm red #C65A50, mineral blue #3F6F8E.
+- Saturation and cortical lighting were reduced slightly for a fresher, less fluorescent result while preserving clarity.
+
+
+V49 palette:
+- warm off-white #F5F3EE and near-black #161616 as the dominant Swiss editorial neutrals
+- SOUND #D6B44A
+- LANGUAGE #C94B3F
+- VISION #46689A
+- the same three chromatic colors are used for triangle, labels and brain modalities
+
+
+## v50 design system
+
+Typography and grid rules are centralised in `assets/css/swiss-system.css`. Five live accent palettes are selectable from the About section; the selected system persists locally and is applied to the triangle and brain. Backgrounds remain white. See `DESIGN_SYSTEM.md` for the design basis.
+
+
+## v51 palette visibility
+The five palette studies are now a full-width section between About and Services, with large swatches and triangle previews.
+
+
+### v52
+Five new AREA17-informed original colour studies added. White background and black typography remain dominant.
+
+
+## v53 palette direction
+Five saturated, contemporary accent systems are previewed as actual triangles. The page background stays pure white; black remains the structural typographic colour.
+
+
+## v55
+Locked the site to one 12-column / 8px-baseline master grid and the fixed artwork-sampled palette (SOUND #2D6024, LANGUAGE #C04621, VISION #019FBC). Background remains pure white.
+
+
+## v56 editorial refinement
+The top-level typography now uses one consistent display scale across About, Services, Sustainability, News, and Contact rather than making About disproportionately larger. The visual logic is AREA 17-informed rather than copied: one master grid, strong typographic hierarchy, white space, structural rules, and restrained color concentrated in the interactive visual system.
+
+
+## Final company-copy + validated triangle deployment
+- Updated About text on `index.html` and `about.html` with the final frei august company description.
+- Replaced `services.html` with the validated normal equilateral triangle build.
+- Triangle and brain share the same embedded colour source.
+- See `DEPLOY_VALIDATION.md` for checks performed.
