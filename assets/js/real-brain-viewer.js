@@ -100,7 +100,7 @@ function applyExactSharedTexture(meshes, bounds) {
     mesh.geometry.setAttribute("uv",new THREE.BufferAttribute(uv,2));
     mesh.material = new THREE.MeshStandardMaterial({
       map:sharedTexture,
-      side:THREE.FrontSide,
+      side:THREE.DoubleSide,
       roughness:0.78,
       metalness:0.0,
       toneMapped:false
@@ -127,10 +127,10 @@ function centerAndFrame(root, meshes) {
 
   const size = bounds.getSize(new THREE.Vector3());
   const maxDim = Math.max(size.x,size.y,size.z);
-  const scale = 2.10 / Math.max(maxDim,1e-6);
+  const scale = 3.00 / Math.max(maxDim,1e-6);
   root.scale.setScalar(scale);
 
-  radius = 8.8;
+  radius = 5.8;
   updateCamera();
 }
 
@@ -150,12 +150,21 @@ const loader = new GLTFLoader();
 loader.setDRACOLoader(draco);
 
 const MODEL_URLS = [
+  "https://cdn.jsdelivr.net/gh/itayinbarr/brainproject@main/brain-atlas/models/brain.glb",
   "./models/brain.glb",
+  "https://itayinbarr.github.io/brainproject/models/brain.glb",
+  "https://brain-atlas-7f5fe.web.app/models/brain.glb",
   "https://raw.githubusercontent.com/itayinbarr/brainproject/main/brain-atlas/models/brain.glb"
 ];
 
 function tryModel(i=0) {
-  if (i>=MODEL_URLS.length) return;
+  if (i>=MODEL_URLS.length) {
+    console.error("freia: real anatomical brain could not be loaded from any source.");
+    document.documentElement.dataset.brainStatus = "error";
+    return;
+  }
+  document.documentElement.dataset.brainStatus = "loading";
+  console.info("freia: loading real brain surface:", MODEL_URLS[i]);
   loader.load(
     MODEL_URLS[i],
     gltf => {
@@ -164,14 +173,18 @@ function tryModel(i=0) {
         cortexMeshes = selectCortex(root);
         if (!cortexMeshes.length) throw new Error("No brain meshes found.");
         centerAndFrame(root,cortexMeshes);
-        // Keep the exact shared-gradient brain visible for robust cross-browser rendering.
+        document.documentElement.dataset.brainStatus = "ready";
+        console.info("freia: real anatomical brain surface loaded.");
       } catch(e) {
         console.warn(e);
         tryModel(i+1);
       }
     },
     undefined,
-    () => tryModel(i+1)
+    err => {
+      console.warn("freia: brain model source failed:", MODEL_URLS[i], err);
+      tryModel(i+1);
+    }
   );
 }
 tryModel();

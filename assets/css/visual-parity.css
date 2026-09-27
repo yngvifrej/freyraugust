@@ -82,3 +82,18 @@
     width:min(72vw,390px)!important;
   }
 }
+
+
+/* FINAL REAL-BRAIN VISIBILITY LOCK */
+#brainCanvas,
+.brain-stage #brainCanvas{
+  opacity:1!important;
+  visibility:visible!important;
+  display:block!important;
+  z-index:5!important;
+  mix-blend-mode:normal!important;
+  filter:none!important;
+}
+html[data-brain-status="ready"] #brainCanvas{
+  opacity:1!important;
+}

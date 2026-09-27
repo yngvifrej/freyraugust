@@ -1,0 +1,12 @@
+{
+  "primary_model_source_is_jsdelivr": true,
+  "local_model_fallback_present": true,
+  "github_pages_fallback_present": true,
+  "firebase_fallback_present": true,
+  "real_cortex_selection_present": true,
+  "real_surface_material_present": true,
+  "canvas_forced_visible": true,
+  "css_errors": 0,
+  "js_errors": 0,
+  "broken_links": 0
+}
