@@ -43,7 +43,7 @@ The Services and Sustainability triangles use the exact same selected gradient f
 
 Endpoint colours:
 - Sound / green-cyan: `#36E6BF`
-- Language / red: `#FF4343`
+- Knowledge / red: `#FF4343`
 - Vision / blue: `#2E63FF`
 
 ## Accessibility and interaction

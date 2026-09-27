@@ -37,9 +37,9 @@ Use `serve-local.command` rather than opening the HTML directly from Finder. The
 
 V34 update:
 - About page now contains editorial copy reflecting the site's multimodal / systems / sustainability concept.
-- SOUND, LANGUAGE and VISION are all clickable on Services and Sustainability.
-- SOUND opens sound.html, LANGUAGE opens language.html, VISION opens vision.html.
-- Added language.html and vision.html with the shared site design.
+- SOUND, KNOWLEDGE and VISION are all clickable on Services and Sustainability.
+- SOUND opens sound.html, KNOWLEDGE opens knowledge.html, VISION opens vision.html.
+- Added knowledge.html and vision.html with the shared site design.
 - GitHub Pages workflow now validates and deploys the two new pages.
 
 
@@ -52,7 +52,7 @@ V35 update:
 
 V36 update:
 - Services and Sustainability triangle/brain are monochrome
-- SOUND/LANGUAGE/VISION labels are black
+- SOUND/KNOWLEDGE/VISION labels are black
 - Audio artwork fields now use artwork from the linked SoundCloud / OTG release pages rather than generated colour compositions
 
 
@@ -73,14 +73,14 @@ V38 update:
 
 V39 FINAL DEPLOY:
 - index.html and about.html are identical
-- Services/Sustainability triangle and brain share the exact RGB tractography-style palette: SOUND #00FF00, LANGUAGE #FF0000, VISION #0000FF
+- Services/Sustainability triangle and brain share the exact RGB tractography-style palette: SOUND #00FF00, KNOWLEDGE #FF0000, VISION #0000FF
 - brain coloration is more saturated and dominant-region weighting is stronger
 - Sustainability keeps the Itten palette for SDG numbers
 - Audio removes technical deployment copy and keeps only music/release content
 
 
 V40 update:
-- removed underline/underscore hover styling from SOUND, LANGUAGE and VISION links
+- removed underline/underscore hover styling from SOUND, KNOWLEDGE and VISION links
 - modality labels remain clickable with no hover decoration
 
 
@@ -92,7 +92,7 @@ V41 final update:
 
 V42 final interaction fix:
 - removed legacy modality hover-underline rules from Services and Sustainability
-- SOUND, LANGUAGE and VISION remain clickable but have no underline/underscore, border, pseudo-line or hover decoration
+- SOUND, KNOWLEDGE and VISION remain clickable but have no underline/underscore, border, pseudo-line or hover decoration
 
 
 V43 final responsive pass:
@@ -113,7 +113,7 @@ V45 update:
 V46 final responsive pass:
 - VISION is the final navigation label; the page describes the medium as moving image
 - no moving-image works were invented or embedded; the page remains ready for supplied media
-- added extra <=480px and <=350px breakpoints so SOUND/LANGUAGE/VISION labels stay inside narrow phone viewports
+- added extra <=480px and <=350px breakpoints so SOUND/KNOWLEDGE/VISION labels stay inside narrow phone viewports
 - preserves 12-column desktop/tablet grid, mobile full-width grid, safe-area insets, short-landscape handling, reduced-motion handling and responsive SoundCloud embeds
 
 
@@ -129,7 +129,7 @@ V48 update:
 V49 palette:
 - warm off-white #F5F3EE and near-black #161616 as the dominant Swiss editorial neutrals
 - SOUND #D6B44A
-- LANGUAGE #C94B3F
+- KNOWLEDGE #C94B3F
 - VISION #46689A
 - the same three chromatic colors are used for triangle, labels and brain modalities
 
@@ -152,7 +152,7 @@ Five saturated, contemporary accent systems are previewed as actual triangles. T
 
 
 ## v55
-Locked the site to one 12-column / 8px-baseline master grid and the fixed artwork-sampled palette (SOUND #2D6024, LANGUAGE #C04621, VISION #019FBC). Background remains pure white.
+Locked the site to one 12-column / 8px-baseline master grid and the fixed artwork-sampled palette (SOUND #2D6024, KNOWLEDGE #C04621, VISION #019FBC). Background remains pure white.
 
 
 ## v56 editorial refinement

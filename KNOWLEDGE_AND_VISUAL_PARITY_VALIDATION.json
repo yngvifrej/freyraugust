@@ -1,0 +1,26 @@
+{
+  "knowledge_page_exists": true,
+  "services_label_is_knowledge": true,
+  "sustainability_label_is_knowledge": true,
+  "index_service_is_knowledge": true,
+  "services_uses_parity_css": true,
+  "sustainability_uses_parity_css": true,
+  "same_triangle_asset": true,
+  "same_brain_asset": true,
+  "both_reference_same_brain_asset": true,
+  "3d_canvas_cannot_change_visual_parity": true,
+  "css_errors": 0,
+  "js_importmap_errors": 0,
+  "broken_internal_links": 0,
+  "triangle_asset_sha256": "5ba92eb58723676fcd98ae91cb651df6cd919aad0dc745870e374c434a57f1ef",
+  "brain_asset_sha256": "e8c28f8a3a348868edeba6d97616d1222068ff59917eb0aa81f2daf3cef2f343",
+  "parity_geometry": {
+    "triangle_width": "min(84%, 780px)",
+    "triangle_aspect_ratio": "1.154700538 / 1",
+    "triangle_transform": "translate(-50%, -33.333333%)",
+    "brain_frame_width": "min(84%, 780px)",
+    "brain_left": "29%",
+    "brain_top": "13%",
+    "brain_width": "42%"
+  }
+}

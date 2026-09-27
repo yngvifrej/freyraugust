@@ -1,0 +1,10 @@
+{
+  "brain_fallback_asset": "assets/img/brain-visible-gradient.png",
+  "services_uses_visible_fallback": true,
+  "services_3d_uses_lit_material": true,
+  "services_has_neutral_lighting": true,
+  "decoder_uses_jsdelivr": true,
+  "workflow_requires_brain_glb": true,
+  "same_visible_fallback_on_sustainability": true,
+  "zip_sha256": "f2d7fe496883a459fd649b9035f1c5a0be5da0306a49f149bf5c90962430b46a"
+}

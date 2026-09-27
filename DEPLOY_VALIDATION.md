@@ -66,7 +66,7 @@ This deployment package uses the supplied company description on `index.html` an
 - Desktop shell is edge-anchored to a fluid page margin rather than a centred max-width frame.
 - Header brand starts on column 1; navigation starts on column 2 and is left-justified.
 - Services and Sustainability visual stages each occupy columns 2–11 on desktop.
-- Selected v7 palette: SOUND `#36E6BF`, LANGUAGE `#FF4343`, VISION `#2E63FF`.
+- Selected v7 palette: SOUND `#36E6BF`, KNOWLEDGE `#FF4343`, VISION `#2E63FF`.
 - Services and Sustainability triangles use the same embedded v7 gradient image.
 - Both brains use the same selected v7 colour family; Sustainability endpoint colours are locked to the same three v7 anchors.
 - GitHub Pages workflow supports `main` and `master`.

@@ -1,0 +1,88 @@
+
+/* freia: exact visual parity between Services and Sustainability */
+:root{
+  --freia-triangle-image:url("../img/triangle-shared-gradient.png");
+  --freia-figure-max:780px;
+}
+
+/* Exact same triangle geometry and image. */
+.triangle-frame,
+.neon-triangle-shape{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:min(84%,var(--freia-figure-max))!important;
+  height:auto!important;
+  aspect-ratio:1.154700538 / 1!important;
+  transform:translate(-50%,-33.333333%)!important;
+  transform-origin:50% 33.333333%!important;
+  clip-path:polygon(0 0,100% 0,50% 100%)!important;
+  background-image:var(--freia-triangle-image)!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+  filter:none!important;
+  opacity:1!important;
+  z-index:1!important;
+}
+
+/* Exact same frame and exact same brain PNG on both pages. */
+.brain-static-frame{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:min(84%,var(--freia-figure-max))!important;
+  height:auto!important;
+  aspect-ratio:1.154700538 / 1!important;
+  transform:translate(-50%,-33.333333%)!important;
+  transform-origin:50% 33.333333%!important;
+  z-index:4!important;
+  pointer-events:none!important;
+}
+.brain-static{
+  position:absolute!important;
+  left:29%!important;
+  top:13%!important;
+  width:42%!important;
+  height:auto!important;
+  max-width:none!important;
+  display:block!important;
+  opacity:1!important;
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,.96))
+    drop-shadow(0 0 1px rgba(0,0,0,.74))
+    drop-shadow(0 8px 16px rgba(0,0,0,.14))!important;
+}
+
+/* The visible central brain is intentionally the identical shared anatomical asset.
+   The existing 3D engine stays in the page code for future use, but cannot alter parity. */
+#brainCanvas,
+.brain-stage #brainCanvas{
+  opacity:0!important;
+  z-index:3!important;
+  pointer-events:none!important;
+}
+
+.brain-fallback-frame{display:none!important;}
+
+.labels-frame,
+.neon-triangle-labels-outside{
+  z-index:6!important;
+}
+
+/* Same responsive size rules on both pages. */
+@media(max-width:900px){
+  .triangle-frame,.neon-triangle-shape,.brain-static-frame{
+    width:min(82%,660px)!important;
+  }
+}
+@media(max-width:700px){
+  .triangle-frame,.neon-triangle-shape,.brain-static-frame{
+    width:min(78vw,500px)!important;
+  }
+}
+@media(max-width:430px){
+  .triangle-frame,.neon-triangle-shape,.brain-static-frame{
+    width:min(72vw,390px)!important;
+  }
+}

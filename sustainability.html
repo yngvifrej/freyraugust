@@ -4010,6 +4010,35 @@ html,body,.site,.site-header{background:#fff!important;}
 </style>
 
 <link rel="stylesheet" href="assets/css/freia-reference-final.css"/>
+
+<style id="freia-brain-visibility-lock">
+/* Brain must remain visually unmistakable against the identical gradient triangle. */
+.brain-static-frame{
+  z-index:2!important;
+  pointer-events:none!important;
+}
+.brain-static{
+  width:42%!important;
+  left:29%!important;
+  top:13%!important;
+  opacity:1!important;
+  display:block!important;
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,.95))
+    drop-shadow(0 0 1px rgba(0,0,0,.72))
+    drop-shadow(0 8px 16px rgba(0,0,0,.14))!important;
+}
+#brainCanvas,.brain-stage #brainCanvas{
+  z-index:3!important;
+  background:transparent!important;
+}
+.labels-frame,.neon-triangle-labels-outside{z-index:6!important;}
+@media(max-width:700px){
+  .brain-static{width:44%!important;left:28%!important;top:12%!important;}
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/visual-parity.css"/>
 </head>
 <body id="top">
 <div class="site">
@@ -4031,7 +4060,7 @@ html,body,.site,.site-header{background:#fff!important;}
 
 <nav class="neon-triangle-labels-outside" aria-label="Media services">
   <a class="label-audio" href="sound.html" aria-label="Open Sound">SOUND</a>
-  <a class="label-text" href="language.html" aria-label="Open Language">LANGUAGE</a>
+  <a class="label-text" href="knowledge.html" aria-label="Open Knowledge">KNOWLEDGE</a>
   <a class="label-video" href="https://9ffyff9.github.io/erthygl-portfolio/?utm_source=perplexity&fbclid=PAVERFWAUZj2dwZG9mAmZkaWQWUOrz9_lmjoKwlQZuk4ET8aA_fW3cXGV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp3_4KgQsPk6C_oyf-t2QQ_fbqF2SxBLC_QJoCBnaoNpWSmPPRz9M1TZWNd2n_aem_54VfrzyKXEFnxmJs7yshIg" target="_blank" rel="noopener noreferrer" aria-label="Open Vision">VISION</a>
 </nav>
 
@@ -4043,7 +4072,7 @@ html,body,.site,.site-header{background:#fff!important;}
 
 
     <div class="brain-static-frame" aria-hidden="true">
-      <img class="brain-static" src="assets/img/brain-shared-gradient.png" alt="">
+      <img class="brain-static" src="assets/img/brain-visible-gradient.png" alt="">
     </div>
 
 <canvas id="brainCanvas" aria-label="Rotatable 3D brain"></canvas>
@@ -4159,9 +4188,11 @@ function applyExactSharedTexture(meshes, bounds) {
     }
 
     mesh.geometry.setAttribute("uv",new THREE.BufferAttribute(uv,2));
-    mesh.material = new THREE.MeshBasicMaterial({
+    mesh.material = new THREE.MeshStandardMaterial({
       map:sharedTexture,
       side:THREE.FrontSide,
+      roughness:0.88,
+      metalness:0.0,
       toneMapped:false
     });
   });
@@ -4359,7 +4390,7 @@ function applyIllustrativeMultimodalColors(meshes, bounds) {
 }
 
 const draco = new DRACOLoader();
-draco.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.7/");
+draco.setDecoderPath("https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/libs/draco/gltf/");
 
 const loader = new GLTFLoader();
 loader.setDRACOLoader(draco);
@@ -4368,7 +4399,7 @@ loader.setDRACOLoader(draco);
 // The upstream fallback keeps the file inspectable before the local asset is fetched.
 const MODEL_URLS = [
   "./models/brain.glb",
-  "https://itayinbarr.github.io/brainproject/models/brain.glb"
+  "https://raw.githubusercontent.com/itayinbarr/brainproject/main/brain-atlas/models/brain.glb"
 ];
 
 let cortexMeshes = [];

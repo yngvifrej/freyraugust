@@ -5,4 +5,4 @@
 3. Push to `main`, or run the workflow manually from Actions.
 4. The workflow downloads the brain model and the OTG release cover into the deployed site.
 
-The main site is scroll-first: About → Services → Sustainability → News → Contact. Direct pages remain available for Services, Sustainability, Sound, Language and Vision.
+The main site is scroll-first: About → Services → Sustainability → News → Contact. Direct pages remain available for Services, Sustainability, Sound, Knowledge and Vision.
