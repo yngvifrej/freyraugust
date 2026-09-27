@@ -1,0 +1,736 @@
+/* freia — Swiss web typographic system v50
+   A web adaptation of International Typographic Style principles:
+   rational grid, asymmetrical hierarchy, sans-serif type, disciplined spacing,
+   ragged-right text, restrained accent colour, and responsive typography. */
+:root{
+  --paper:#ffffff;
+  --ink:#111111;
+  --muted:#676767;
+  --rule:rgba(17,17,17,.16);
+  --grid-max:1600px;
+  --grid-margin:clamp(18px,3.25vw,56px);
+  --grid-gutter:clamp(12px,1.25vw,22px);
+  --baseline:8px;
+  --sans:Helvetica,"Helvetica Neue",Arial,sans-serif;
+
+  /* Major-third inspired web scale (1.25), bounded fluidly for devices. */
+  --type-xs:clamp(.6875rem,.665rem + .10vw,.75rem);     /* 11–12 */
+  --type-sm:clamp(.8125rem,.775rem + .18vw,.9375rem);   /* 13–15 */
+  --type-base:clamp(1rem,.955rem + .22vw,1.125rem);      /* 16–18 */
+  --type-1:clamp(1.25rem,1.15rem + .45vw,1.5rem);        /* 20–24 */
+  --type-2:clamp(1.5625rem,1.40rem + .72vw,2rem);        /* 25–32 */
+  --type-3:clamp(2.441rem,2.06rem + 1.55vw,3.815rem);    /* 39–61 */
+  --type-4:clamp(3.815rem,3.00rem + 3.70vw,7.45rem);     /* 61–119 */
+  --type-5:clamp(5rem,3.9rem + 5vw,9.31rem);             /* 80–149 */
+
+  /* Palette 01 fallback. JS may override these on <html>. */
+  --palette-sound:#2D6024;
+  --palette-language:#C04621;
+  --palette-vision:#019FBC;
+}
+
+html{
+  background:#fff!important;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body,.site,.site-header{background:#fff!important;color:var(--ink)!important;}
+body{font-family:var(--sans)!important;font-size:var(--type-base);line-height:1.5;letter-spacing:-.006em;}
+
+*,*::before,*::after{box-sizing:border-box;}
+img,svg,canvas,video,iframe{max-width:100%;}
+
+/* 12-column Zürich-style working grid. */
+.shell{
+  width:min(100%,var(--grid-max))!important;
+  margin-inline:auto!important;
+  padding-left:max(var(--grid-margin),env(safe-area-inset-left))!important;
+  padding-right:max(var(--grid-margin),env(safe-area-inset-right))!important;
+}
+.grid{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  column-gap:var(--grid-gutter)!important;
+}
+
+/* Typographic discipline: left aligned, no justified copy. */
+h1,h2,h3,h4,h5,h6,p,li,dt,dd{font-family:var(--sans);text-align:left;}
+p{line-height:1.5;}
+.brand,.about-wordmark{font-weight:700!important;letter-spacing:-.042em!important;line-height:.94!important;}
+.brand{font-size:var(--type-2)!important;}
+.main-nav{font-size:var(--type-xs)!important;line-height:1.2!important;letter-spacing:.035em!important;font-weight:700!important;text-transform:uppercase!important;}
+.section-kicker,.page-kicker,.audio-index{
+  font-size:var(--type-xs)!important;
+  line-height:1.2!important;
+  letter-spacing:.045em!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+}
+.section-title,.page-title{
+  font-size:var(--type-5)!important;
+  line-height:.86!important;
+  letter-spacing:-.058em!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+  text-wrap:balance;
+}
+.embed-title{
+  font-size:var(--type-4)!important;
+  line-height:.88!important;
+  letter-spacing:-.052em!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+}
+.about-primary{
+  font-size:var(--type-2)!important;
+  line-height:1.20!important;
+  letter-spacing:-.024em!important;
+  max-width:58ch!important;
+}
+.about-secondary,.section-note,.media-intro p{
+  font-size:var(--type-1)!important;
+  line-height:1.5!important;
+  letter-spacing:-.012em!important;
+  max-width:62ch!important;
+}
+.contact-line{
+  font-size:var(--type-3)!important;
+  line-height:1.05!important;
+  letter-spacing:-.038em!important;
+  max-width:34ch!important;
+}
+.audio-copy h2,.release-meta h3{
+  font-size:var(--type-2)!important;
+  line-height:1.02!important;
+  letter-spacing:-.034em!important;
+  font-weight:700!important;
+}
+.audio-copy p,.release-meta p,.audio-link,.release-meta a{
+  font-size:var(--type-xs)!important;
+  line-height:1.45!important;
+  letter-spacing:.035em!important;
+}
+
+/* Baseline-based section rhythm. */
+.scroll-section{scroll-margin-top:96px;}
+.about-section{padding-top:calc(var(--baseline)*10)!important;padding-bottom:calc(var(--baseline)*15)!important;}
+.about-copy{margin-top:calc(var(--baseline)*10)!important;row-gap:calc(var(--baseline)*8)!important;}
+.embed-section{padding-top:calc(var(--baseline)*8)!important;}
+.embed-heading{padding-bottom:calc(var(--baseline)*3)!important;}
+.text-section{padding-top:calc(var(--baseline)*14)!important;padding-bottom:calc(var(--baseline)*14)!important;}
+.content-page{padding-top:calc(var(--baseline)*12)!important;padding-bottom:calc(var(--baseline)*14)!important;}
+
+/* Asymmetrical but rational grid placements. */
+.section-kicker,.page-kicker{grid-column:1/span 2!important;}
+.section-title,.page-title,.embed-title{grid-column:3/span 10!important;}
+.about-primary{grid-column:3/span 8!important;}
+.about-secondary{grid-column:7/span 5!important;}
+.mode-row{grid-column:3/span 10!important;}
+.section-note{grid-column:8/span 4!important;}
+.contact-line{grid-column:3/span 9!important;}
+.media-intro>p:first-child{grid-column:3/span 6!important;}
+.media-intro>.media-future{grid-column:9/span 4!important;}
+
+/* No decorative background recolouring. Colour is reserved for content/graphics. */
+html,body,.site,.site-header,.content-page,.about-section,.embed-section,.text-section{background:#fff!important;}
+
+/* Palette colour is used consistently by the triangle. */
+.neon-triangle-shape{
+  --tract-audio:var(--palette-sound)!important;
+  --tract-text:var(--palette-language)!important;
+  --tract-video:var(--palette-vision)!important;
+  background:conic-gradient(from 270deg at 50% 33.333333%,
+      var(--palette-sound) 0deg,var(--palette-sound) 92deg,
+      var(--palette-language) 150deg,var(--palette-language) 210deg,
+      var(--palette-vision) 270deg,var(--palette-vision) 330deg,
+      var(--palette-sound) 360deg)!important;
+  filter:saturate(.90) contrast(1.015) brightness(1.015)!important;
+}
+.neon-triangle-labels-outside .label-audio{color:var(--palette-sound)!important;}
+.neon-triangle-labels-outside .label-text{color:var(--palette-language)!important;}
+.neon-triangle-labels-outside .label-video{color:var(--palette-vision)!important;}
+
+.mode-row{margin-top:calc(var(--baseline)*8)!important;padding-top:calc(var(--baseline)*2)!important;}
+.mode-row a{font-size:var(--type-1)!important;line-height:1.05!important;letter-spacing:-.025em!important;}
+.mode-row small{font-size:var(--type-xs)!important;line-height:1.4!important;}
+
+/* Tablet: keep the grid but rebalance spans. */
+@media(max-width:1000px){
+  :root{--grid-margin:clamp(18px,3.5vw,34px);--grid-gutter:clamp(10px,1.4vw,16px);}
+  .brand{grid-column:1/span 4!important;}
+  .main-nav{grid-column:4/span 9!important;}
+  .section-title,.page-title,.embed-title{grid-column:2/span 11!important;}
+  .about-primary{grid-column:2/span 10!important;}
+  .about-secondary{grid-column:6/span 7!important;}
+  .mode-row,.palette-lab{grid-column:2/span 11!important;}
+  .section-note{grid-column:7/span 6!important;}
+  .contact-line{grid-column:2/span 10!important;}
+  .media-intro>p:first-child{grid-column:2/span 7!important;}
+  .media-intro>.media-future{grid-column:9/span 4!important;}
+}
+
+/* Mobile: one clear reading column, same hierarchy, no horizontal overflow. */
+@media(max-width:700px){
+  :root{--grid-margin:max(16px,4.5vw);--grid-gutter:10px;}
+  .site-header{padding-top:max(14px,env(safe-area-inset-top))!important;padding-bottom:10px!important;}
+  .brand{grid-column:1/span 12!important;font-size:var(--type-2)!important;}
+  .main-nav{grid-column:1/span 12!important;justify-content:flex-start!important;flex-wrap:wrap!important;gap:8px 13px!important;margin-top:10px!important;white-space:normal!important;}
+  .section-kicker,.page-kicker,.section-title,.page-title,.embed-title,.about-primary,.about-secondary,.mode-row,.palette-lab,.section-note,.contact-line,.media-intro>p:first-child,.media-intro>.media-future{grid-column:1/span 12!important;}
+  .section-title,.page-title{font-size:clamp(3.2rem,17vw,5.5rem)!important;line-height:.86!important;}
+  .embed-title{font-size:clamp(2.75rem,14vw,4.5rem)!important;}
+  .about-primary{font-size:clamp(1.45rem,6.8vw,2rem)!important;line-height:1.22!important;}
+  .about-secondary,.section-note,.media-intro p{font-size:clamp(1rem,4.6vw,1.25rem)!important;line-height:1.5!important;}
+  .about-section{padding-top:calc(var(--baseline)*6)!important;padding-bottom:calc(var(--baseline)*10)!important;}
+  .about-copy{margin-top:calc(var(--baseline)*7)!important;row-gap:calc(var(--baseline)*5)!important;}
+  .palette-lab-head{grid-template-columns:repeat(12,minmax(0,1fr));row-gap:12px;}
+  .palette-lab-head h2,.palette-lab-head p{grid-column:1/span 12;}
+  .palette-option{grid-template-columns:repeat(12,minmax(0,1fr));row-gap:12px;padding:16px 0;}
+  .palette-number{grid-column:1/span 2;}
+  .palette-name{grid-column:3/span 10;}
+  .palette-bars{grid-column:1/span 12;gap:8px;}
+  .palette-chip{min-height:34px;padding:5px 6px;font-size:9px;}
+  .mode-row{grid-template-columns:1fr!important;row-gap:24px!important;margin-top:40px!important;}
+  .content-page{padding-top:64px!important;}
+}
+@media(max-width:380px){
+  :root{--grid-margin:14px;--grid-gutter:8px;}
+  .main-nav{font-size:10px!important;gap:7px 10px!important;}
+  .palette-chip{font-size:8px;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important;}*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+
+
+/* v55 — one master modular grid across the entire site.
+   12 columns / 8px baseline / white field / black type.
+   Chromatic colour is reserved for the brain + triangle and sampled from the user's reference artwork. */
+:root{
+  --palette-sound:#2D6024;
+  --palette-language:#C04621;
+  --palette-vision:#019FBC;
+  --master-cols:12;
+}
+html,body,.site,.site-header,.content-page,.about-section,.embed-section,.text-section{background:#fff!important;}
+.shell{width:min(100%,var(--grid-max))!important;margin-inline:auto!important;padding-left:max(var(--grid-margin),env(safe-area-inset-left))!important;padding-right:max(var(--grid-margin),env(safe-area-inset-right))!important;}
+.grid{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;column-gap:var(--grid-gutter)!important;}
+
+/* Header aligns to the same column lines as all editorial content. */
+.site-header .brand{grid-column:1/span 3!important;}
+.site-header .main-nav{grid-column:5/span 8!important;}
+
+/* Editorial hierarchy follows fixed column starts rather than page-specific centering. */
+.section-kicker,.page-kicker{grid-column:1/span 2!important;}
+.section-title,.page-title,.embed-title{grid-column:3/span 10!important;}
+.about-primary{grid-column:3/span 8!important;}
+.about-secondary{grid-column:7/span 5!important;}
+.mode-row{grid-column:3/span 10!important;}
+.section-note{grid-column:8/span 4!important;}
+.contact-line{grid-column:3/span 9!important;}
+
+/* Sound page modules use the same 12-column skeleton. */
+.audio-item>.grid{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;column-gap:var(--grid-gutter)!important;}
+.audio-index{grid-column:1/span 1!important;}
+.audio-copy{grid-column:2/span 3!important;}
+.soundcloud-visual{grid-column:5/span 8!important;min-width:0!important;}
+.release-card,.release-grid{grid-column:1/-1!important;}
+.release-cover{grid-column:5/span 4!important;}
+.release-meta{grid-column:9/span 4!important;}
+
+/* Interactive visualisation: the frame itself occupies ten master columns and is centred by the grid. */
+.zero-only-hero{width:min(100%,var(--grid-max))!important;margin-inline:auto!important;padding-left:max(var(--grid-margin),env(safe-area-inset-left))!important;padding-right:max(var(--grid-margin),env(safe-area-inset-right))!important;display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;column-gap:var(--grid-gutter)!important;}
+.zero-only-hero .hero-zero-wrap{grid-column:2/span 10!important;width:100%!important;min-width:0!important;}
+.hero-zero-carousel,.brain-carousel{width:100%!important;max-width:none!important;margin-inline:0!important;}
+.hero-zero-carousel .carousel-stage,.brain-stage{width:100%!important;margin-inline:0!important;}
+
+/* Triangle is optically centred inside that 10-column visual field. */
+.neon-triangle-shape,.neon-triangle-labels-outside{left:50%!important;}
+.neon-triangle-shape{filter:saturate(1.02) contrast(1.02) brightness(1.0)!important;}
+.neon-triangle-labels-outside .label-audio{color:var(--palette-sound)!important;}
+.neon-triangle-labels-outside .label-text{color:var(--palette-language)!important;}
+.neon-triangle-labels-outside .label-video{color:var(--palette-vision)!important;}
+
+@media(max-width:1000px){
+  .site-header .brand{grid-column:1/span 4!important;}
+  .site-header .main-nav{grid-column:4/span 9!important;}
+  .section-title,.page-title,.embed-title{grid-column:2/span 11!important;}
+  .about-primary{grid-column:2/span 10!important;}
+  .about-secondary{grid-column:6/span 7!important;}
+  .mode-row{grid-column:2/span 11!important;}
+  .zero-only-hero .hero-zero-wrap{grid-column:1/span 12!important;}
+  .audio-copy{grid-column:2/span 4!important;}
+  .soundcloud-visual{grid-column:6/span 7!important;}
+}
+@media(max-width:700px){
+  .site-header .brand,.site-header .main-nav,.section-kicker,.page-kicker,.section-title,.page-title,.embed-title,.about-primary,.about-secondary,.mode-row,.section-note,.contact-line{grid-column:1/span 12!important;}
+  .zero-only-hero .hero-zero-wrap{grid-column:1/span 12!important;}
+  .audio-index{grid-column:1/span 1!important;}
+  .audio-copy{grid-column:2/span 11!important;}
+  .soundcloud-visual,.release-cover,.release-meta{grid-column:1/span 12!important;}
+}
+
+
+/* v56 — AREA 17-informed editorial refinement.
+   Not a copy: one rational grid, restrained display scale, clear information hierarchy,
+   white field, purposeful rules, and consistent section typography. */
+:root{
+  --type-display:clamp(3.5rem,5.6vw,7rem);       /* 56–112px */
+  --type-lead:clamp(1.75rem,2.25vw,2.625rem);    /* 28–42px */
+  --type-deck:clamp(1.0625rem,1.15vw,1.3125rem); /* 17–21px */
+  --type-label:clamp(.6875rem,.64rem + .12vw,.8125rem);
+  --rule-strong:rgba(17,17,17,.28);
+}
+
+/* Header: plain white, precise, no decorative glass effect. */
+.site-header{
+  background:#fff!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border-bottom:1px solid var(--rule)!important;
+}
+.site-header .brand{font-size:clamp(1.75rem,2.05vw,2.25rem)!important;line-height:.92!important;}
+.site-header .main-nav{font-size:var(--type-label)!important;gap:clamp(12px,1.55vw,26px)!important;}
+
+/* One display scale for all top-level sections. */
+.section-title,.page-title,.embed-title{
+  font-size:var(--type-display)!important;
+  line-height:.91!important;
+  letter-spacing:-.05em!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+  max-width:11ch;
+}
+.embed-title{max-width:14ch;}
+.section-kicker,.page-kicker{
+  font-size:var(--type-label)!important;
+  line-height:1.15!important;
+  letter-spacing:.055em!important;
+  color:var(--muted)!important;
+}
+.about-primary{
+  font-size:var(--type-lead)!important;
+  line-height:1.12!important;
+  letter-spacing:-.032em!important;
+  max-width:31ch!important;
+}
+.about-secondary,.section-note,.media-intro p{
+  font-size:var(--type-deck)!important;
+  line-height:1.48!important;
+  letter-spacing:-.012em!important;
+}
+.contact-line{
+  font-size:clamp(2rem,3.2vw,4rem)!important;
+  line-height:1.02!important;
+  letter-spacing:-.045em!important;
+}
+
+/* More editorial section rhythm: title, then content; rules are structural. */
+.about-section{padding-top:calc(var(--baseline)*10)!important;padding-bottom:calc(var(--baseline)*16)!important;}
+.about-copy{margin-top:calc(var(--baseline)*12)!important;row-gap:calc(var(--baseline)*8)!important;}
+.embed-section{padding-top:calc(var(--baseline)*10)!important;}
+.embed-heading{padding-bottom:calc(var(--baseline)*4)!important;border-bottom:1px solid var(--rule)!important;}
+.text-section{padding-top:calc(var(--baseline)*12)!important;padding-bottom:calc(var(--baseline)*16)!important;}
+.mode-row{margin-top:calc(var(--baseline)*10)!important;padding-top:calc(var(--baseline)*2)!important;border-top:1px solid var(--rule-strong)!important;}
+.mode-row a{font-size:clamp(1.125rem,1.35vw,1.5rem)!important;line-height:1!important;}
+.mode-row small{margin-top:10px!important;max-width:28ch;}
+
+/* Keep title and copy starts on repeatable master columns. */
+.section-title,.page-title,.embed-title{grid-column:3/span 8!important;}
+.about-primary{grid-column:3/span 7!important;}
+.about-secondary{grid-column:8/span 5!important;}
+.section-note{grid-column:8/span 4!important;}
+.contact-line{grid-column:3/span 8!important;}
+
+@media(max-width:1000px){
+  .section-title,.page-title,.embed-title{grid-column:2/span 10!important;}
+  .about-primary{grid-column:2/span 9!important;}
+  .about-secondary{grid-column:7/span 6!important;}
+}
+@media(max-width:700px){
+  :root{--type-display:clamp(3rem,14vw,4.5rem);}
+  .section-title,.page-title,.embed-title,.about-primary,.about-secondary,.section-note,.contact-line{grid-column:1/span 12!important;}
+  .section-title,.page-title,.embed-title{font-size:var(--type-display)!important;line-height:.9!important;max-width:100%;}
+  .about-primary{font-size:clamp(1.5rem,7.2vw,2rem)!important;line-height:1.18!important;}
+  .about-secondary,.section-note,.media-intro p{font-size:clamp(1rem,4.6vw,1.18rem)!important;line-height:1.5!important;}
+  .about-section{padding-top:48px!important;padding-bottom:80px!important;}
+  .about-copy{margin-top:56px!important;row-gap:40px!important;}
+  .embed-section{padding-top:48px!important;}
+  .embed-heading{padding-bottom:20px!important;}
+}
+
+
+/* v57 — unified editorial system across every live page.
+   The established interactive brain + triangle are retained unchanged in Services/Sustainability.
+   One 12-column grid, 8px baseline, white field, black typography, reference-artwork accents. */
+:root{
+  --type-display:clamp(4rem,6.25vw,8rem);        /* 64–128px */
+  --type-lead:clamp(1.875rem,2.35vw,2.75rem);    /* 30–44px */
+  --type-deck:clamp(1.0625rem,1.12vw,1.3125rem); /* 17–21px */
+}
+
+/* Consistent header behavior on all substantive pages. */
+.site-header{
+  position:sticky!important;
+  top:0!important;
+  z-index:100!important;
+  background:#fff!important;
+  border-bottom:1px solid var(--rule)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  padding-top:max(16px,env(safe-area-inset-top))!important;
+  padding-bottom:12px!important;
+}
+.site-header .brand{grid-column:1/span 3!important;}
+.site-header .main-nav{grid-column:5/span 8!important;}
+
+/* Major headings: large enough to anchor the page, but no longer poster-dominant. */
+.section-title,.page-title,.embed-title{
+  font-size:var(--type-display)!important;
+  line-height:.89!important;
+  letter-spacing:-.052em!important;
+  font-weight:700!important;
+  color:var(--ink)!important;
+  text-transform:uppercase!important;
+  max-width:100%!important;
+}
+.section-title,.page-title,.embed-title{grid-column:3/span 9!important;}
+
+/* About hierarchy. */
+.about-primary{
+  grid-column:3/span 7!important;
+  font-size:var(--type-lead)!important;
+  line-height:1.13!important;
+  letter-spacing:-.031em!important;
+  max-width:32ch!important;
+}
+.about-secondary{
+  grid-column:8/span 5!important;
+  font-size:var(--type-deck)!important;
+  line-height:1.5!important;
+  max-width:44ch!important;
+}
+.about-wordmark{font-weight:700!important;letter-spacing:-.042em!important;}
+
+/* Shared page rhythm. */
+.content-page{
+  min-height:calc(100svh - 72px)!important;
+  padding-top:calc(var(--baseline)*11)!important;
+  padding-bottom:calc(var(--baseline)*15)!important;
+}
+.content-page>.grid:first-child{align-items:start!important;}
+.media-intro{
+  margin-top:calc(var(--baseline)*10)!important;
+  row-gap:calc(var(--baseline)*5)!important;
+}
+.media-intro>p:first-child{grid-column:3/span 6!important;}
+.media-intro>.media-future{grid-column:9/span 4!important;}
+.empty-space{
+  min-height:clamp(280px,48vh,640px)!important;
+  margin-top:calc(var(--baseline)*10)!important;
+  border-top:1px solid var(--rule)!important;
+  border-bottom:0!important;
+}
+
+/* Sound follows the same editorial skeleton. */
+.audio-list{margin-top:calc(var(--baseline)*10)!important;border-top:1px solid var(--rule)!important;}
+.audio-item{padding:calc(var(--baseline)*4) 0!important;border-bottom:1px solid var(--rule)!important;}
+.audio-item>.grid{align-items:start!important;}
+.audio-index{grid-column:1/span 1!important;}
+.audio-copy{grid-column:2/span 3!important;}
+.soundcloud-visual,.release-visual{grid-column:5/span 8!important;}
+.soundcloud-visual iframe{width:100%!important;min-height:420px!important;border:0!important;display:block!important;}
+.release-cover{grid-column:1/span 4!important;}
+.release-meta{grid-column:5/span 4!important;}
+.audio-copy h2,.release-meta h3{color:var(--ink)!important;}
+
+/* Remove legacy modality-title recolouring so all pages share one editorial hierarchy. */
+.media-page .page-title,
+.audio-page .page-title,
+.page-title{color:var(--ink)!important;}
+
+/* Interactive visual fields stay centered on the master grid. */
+.zero-only-hero{
+  width:min(100%,var(--grid-max))!important;
+  margin-inline:auto!important;
+  padding-left:max(var(--grid-margin),env(safe-area-inset-left))!important;
+  padding-right:max(var(--grid-margin),env(safe-area-inset-right))!important;
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  column-gap:var(--grid-gutter)!important;
+}
+.zero-only-hero .hero-zero-wrap{grid-column:2/span 10!important;width:100%!important;min-width:0!important;}
+.neon-triangle-shape,.neon-triangle-labels-outside{left:50%!important;}
+.neon-triangle-shape{
+  --tract-audio:var(--palette-sound)!important;
+  --tract-text:var(--palette-language)!important;
+  --tract-video:var(--palette-vision)!important;
+  filter:saturate(1.03) contrast(1.02) brightness(1.0)!important;
+}
+
+@media(max-width:1000px){
+  .site-header .brand{grid-column:1/span 4!important;}
+  .site-header .main-nav{grid-column:4/span 9!important;}
+  .section-title,.page-title,.embed-title{grid-column:2/span 11!important;}
+  .about-primary{grid-column:2/span 9!important;}
+  .about-secondary{grid-column:7/span 6!important;}
+  .media-intro>p:first-child{grid-column:2/span 7!important;}
+  .media-intro>.media-future{grid-column:9/span 4!important;}
+  .zero-only-hero .hero-zero-wrap{grid-column:1/span 12!important;}
+  .audio-copy{grid-column:2/span 4!important;}
+  .soundcloud-visual,.release-visual{grid-column:6/span 7!important;}
+}
+
+@media(max-width:700px){
+  :root{--type-display:clamp(3.25rem,15.5vw,5rem);}
+  .site-header{padding-top:max(12px,env(safe-area-inset-top))!important;padding-bottom:10px!important;}
+  .site-header .brand,.site-header .main-nav,
+  .section-kicker,.page-kicker,.section-title,.page-title,.embed-title,
+  .about-primary,.about-secondary,.mode-row,.section-note,.contact-line,
+  .media-intro>p:first-child,.media-intro>.media-future{
+    grid-column:1/span 12!important;
+  }
+  .section-title,.page-title,.embed-title{line-height:.9!important;}
+  .about-primary{font-size:clamp(1.55rem,7.3vw,2.05rem)!important;line-height:1.18!important;}
+  .about-secondary,.media-intro p,.section-note{font-size:clamp(1rem,4.6vw,1.18rem)!important;}
+  .content-page{padding-top:56px!important;padding-bottom:80px!important;}
+  .media-intro{margin-top:48px!important;}
+  .audio-list{margin-top:48px!important;}
+  .audio-item{padding:28px 0!important;}
+  .audio-index{grid-column:1/span 1!important;}
+  .audio-copy{grid-column:2/span 11!important;}
+  .soundcloud-visual,.release-visual,.release-cover,.release-meta{grid-column:1/span 12!important;}
+  .soundcloud-visual,.release-visual{margin-top:16px!important;}
+  .soundcloud-visual iframe{min-height:360px!important;}
+  .zero-only-hero .hero-zero-wrap{grid-column:1/span 12!important;}
+}
+
+
+/* v58 — restore the established brain/triangle visualisation.
+   Exact tractography RGB mapping retained from the established version:
+   SOUND = green, LANGUAGE = red, VISION = blue.
+   Editorial pages keep the unified Swiss grid, but the visualisation itself
+   is no longer squeezed into a 10-column sub-grid. */
+:root{
+  --palette-sound:#00FF00;
+  --palette-language:#FF0000;
+  --palette-vision:#0000FF;
+}
+
+/* The faint header divider introduced during the editorial refinement is removed. */
+.site-header{border-bottom:none!important;box-shadow:none!important;}
+
+/* Restore the original visualisation field rather than forcing it into a narrower grid cell. */
+.zero-only-hero{
+  display:block!important;
+  grid-template-columns:none!important;
+}
+.zero-only-hero .hero-zero-wrap{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+.hero-zero-carousel,.brain-carousel,
+.hero-zero-carousel .carousel-stage,.brain-stage{
+  width:100%!important;
+  max-width:none!important;
+  margin-inline:0!important;
+}
+
+/* Established equilateral/down-pointing triangle geometry. */
+.neon-triangle-shape,
+.neon-triangle-labels-outside{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:min(84%,780px)!important;
+  max-width:780px!important;
+  height:auto!important;
+  aspect-ratio:1.154700538 / 1!important;
+  transform:translate(-50%,-33.333333%)!important;
+  transform-origin:50% 33.333333%!important;
+}
+.neon-triangle-shape{
+  z-index:1!important;
+  clip-path:polygon(0 0,100% 0,50% 100%)!important;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0,255,0,1) 0%, rgba(0,255,0,.92) 24%, rgba(0,255,0,0) 64%),
+    radial-gradient(circle at 100% 0%, rgba(255,0,0,1) 0%, rgba(255,0,0,.92) 24%, rgba(255,0,0,0) 64%),
+    radial-gradient(circle at 50% 100%, rgba(0,0,255,1) 0%, rgba(0,0,255,.94) 27%, rgba(0,0,255,0) 66%),
+    conic-gradient(from 270deg at 50% 33.333333%,
+      #00FF00 0deg,#00FF00 90deg,
+      #FF0000 150deg,#FF0000 210deg,
+      #0000FF 270deg,#0000FF 330deg,
+      #00FF00 360deg)!important;
+  filter:saturate(1.08) contrast(1.04)!important;
+}
+.neon-triangle-labels-outside{
+  z-index:20!important;
+  overflow:visible!important;
+  pointer-events:none!important;
+  font-family:Helvetica,"Helvetica Neue",Arial,sans-serif!important;
+  font-size:clamp(13px,.92vw,15px)!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+}
+.neon-triangle-labels-outside a{
+  pointer-events:auto!important;
+  cursor:pointer!important;
+  color:#111!important;
+  text-decoration:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  background:none!important;
+}
+.neon-triangle-labels-outside a:hover,
+.neon-triangle-labels-outside a:focus-visible,
+.neon-triangle-labels-outside a:active,
+.neon-triangle-labels-outside a:visited{
+  color:#111!important;
+  text-decoration:none!important;
+  outline:none!important;
+}
+.neon-triangle-labels-outside .label-audio{
+  position:absolute!important;left:0!important;top:0!important;
+  transform:translate(-100%,-115%)!important;transform-origin:right bottom!important;white-space:nowrap!important;
+}
+.neon-triangle-labels-outside .label-text{
+  position:absolute!important;right:0!important;top:0!important;
+  transform:translate(100%,-115%)!important;transform-origin:left bottom!important;white-space:nowrap!important;
+}
+.neon-triangle-labels-outside .label-video{
+  position:absolute!important;left:50%!important;bottom:0!important;
+  transform:translate(-50%,145%)!important;transform-origin:center top!important;white-space:nowrap!important;
+}
+.brain-stage #brainCanvas{
+  position:absolute!important;inset:0!important;z-index:3!important;
+  width:100%!important;height:100%!important;transform:none!important;
+}
+@media(max-width:1024px){
+  .neon-triangle-shape,.neon-triangle-labels-outside{width:min(88%,660px)!important;max-width:660px!important;}
+  .neon-triangle-labels-outside{font-size:13px!important;}
+  .neon-triangle-labels-outside .label-audio{transform:translate(-94%,-112%)!important;}
+  .neon-triangle-labels-outside .label-text{transform:translate(94%,-112%)!important;}
+  .neon-triangle-labels-outside .label-video{transform:translate(-50%,136%)!important;}
+}
+@media(max-width:700px){
+  .neon-triangle-shape,.neon-triangle-labels-outside{width:min(94%,520px)!important;max-width:520px!important;}
+  .neon-triangle-labels-outside{font-size:12px!important;}
+  .neon-triangle-labels-outside .label-audio{transform:translate(-88%,-108%)!important;}
+  .neon-triangle-labels-outside .label-text{transform:translate(88%,-108%)!important;}
+  .neon-triangle-labels-outside .label-video{transform:translate(-50%,128%)!important;}
+}
+
+/* ================================================================
+   freia — FINAL SWISS MODULAR GRID LOCK
+   12 equal columns / 8px baseline / edge-anchored shell.
+   The header is deliberately left-weighted: brand starts at column 1,
+   navigation starts at column 2 rather than drifting toward page centre.
+   ================================================================ */
+:root{
+  --grid-max:none;
+  --grid-margin:clamp(20px,2.6vw,48px);
+  --grid-gutter:clamp(12px,1.15vw,20px);
+  --baseline:8px;
+  --palette-sound:#36E6BF;
+  --palette-language:#FF4343;
+  --palette-vision:#2E63FF;
+}
+
+.shell,
+.zero-only-hero{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:max(var(--grid-margin),env(safe-area-inset-left))!important;
+  padding-right:max(var(--grid-margin),env(safe-area-inset-right))!important;
+}
+.grid,
+.header-grid{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  column-gap:var(--grid-gutter)!important;
+}
+.site-nav-grid{align-items:baseline!important;row-gap:8px!important;}
+.site-header,
+header.site-header{
+  padding:24px 0 16px!important;
+  margin:0!important;
+  background:rgba(255,255,255,.96)!important;
+}
+.site-header .brand{
+  grid-column:1 / span 1!important;
+  justify-self:start!important;
+  align-self:baseline!important;
+  margin:0!important;
+  white-space:nowrap!important;
+}
+.site-header .main-nav{
+  grid-column:2 / span 11!important;
+  justify-content:flex-start!important;
+  justify-self:start!important;
+  align-items:baseline!important;
+  gap:clamp(16px,1.55vw,30px)!important;
+  margin:0!important;
+  white-space:nowrap!important;
+}
+
+/* Editorial modules stay on the same twelve vertical lines. */
+.section-kicker,.page-kicker{grid-column:1 / span 2!important;}
+.section-title,.page-title,.embed-title{grid-column:3 / span 10!important;}
+.about-primary{grid-column:3 / span 8!important;}
+.about-secondary{grid-column:7 / span 5!important;}
+.mode-row{grid-column:3 / span 10!important;}
+.section-note{grid-column:8 / span 4!important;}
+.contact-line{grid-column:3 / span 9!important;}
+
+/* Services visual occupies the same 10-column field as Sustainability. */
+main.shell > .hero{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  column-gap:var(--grid-gutter)!important;
+  place-items:initial!important;
+  align-items:center!important;
+}
+main.shell > .hero > .stage{
+  grid-column:2 / span 10!important;
+  justify-self:stretch!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+.zero-only-hero{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  column-gap:var(--grid-gutter)!important;
+}
+.zero-only-hero .hero-zero-wrap{grid-column:2 / span 10!important;width:100%!important;min-width:0!important;}
+
+/* Exact selected v7 endpoint colours wherever labels use palette variables. */
+.neon-triangle-labels-outside .label-audio{color:var(--palette-sound)!important;}
+.neon-triangle-labels-outside .label-text{color:var(--palette-language)!important;}
+.neon-triangle-labels-outside .label-video{color:var(--palette-vision)!important;}
+
+@media(max-width:1000px){
+  :root{--grid-margin:clamp(18px,3.4vw,34px);--grid-gutter:clamp(10px,1.4vw,16px);}
+  .site-header .brand{grid-column:1 / span 2!important;}
+  .site-header .main-nav{grid-column:3 / span 10!important;gap:12px 20px!important;flex-wrap:wrap!important;}
+  main.shell > .hero > .stage,
+  .zero-only-hero .hero-zero-wrap{grid-column:1 / span 12!important;}
+}
+@media(max-width:700px){
+  :root{--grid-margin:max(16px,4.5vw);--grid-gutter:10px;}
+  .site-header,header.site-header{padding:max(14px,env(safe-area-inset-top)) 0 10px!important;}
+  .site-header .brand{grid-column:1 / span 12!important;}
+  .site-header .main-nav{
+    grid-column:1 / span 12!important;
+    justify-content:flex-start!important;
+    flex-wrap:wrap!important;
+    gap:8px 13px!important;
+    margin-top:8px!important;
+    white-space:normal!important;
+  }
+}

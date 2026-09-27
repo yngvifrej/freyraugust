@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>frei august — Sustainability</title>
+<title>freia — Sustainability</title>
 <meta content="Independent creative studio." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -1504,7 +1504,7 @@
 }
 
 
-/* === frei august brain variants: only brain/legend presentation changes === */
+/* === freia brain variants: only brain/legend presentation changes === */
 .brain-ui { display:none !important; }
 
 .brain-stage {
@@ -2860,12 +2860,12 @@
 
 /* === V18 Swiss SDG orbit + fancy palette === */
 :root {
-  --tri-video: #3157a6;
-  --tri-text: #8f2024;
-  --tri-audio: #66762c;
-  --tri-ochre: #b26d22;
+  --tri-video: #2E63FF;
+  --tri-text: #FF4343;
+  --tri-audio: #36E6BF;
+  --tri-ochre: #F08A3E;
   --tri-cream: #f4efe5;
-  --tri-plum: #6a445c;
+  --tri-plum: #7E56C5;
 }
 
 /* Hermann-Nitsch-inspired, more painterly triangle while keeping 3 poles distinct */
@@ -3880,9 +3880,30 @@ html,body,.site,.site-header{background:#fff!important;color:var(--frei-ink)!imp
 
 <script src="assets/js/palette-init.js"></script>
 <link rel="stylesheet" href="assets/css/swiss-system.css"/>
-<style id="v55-master-grid-palette-lock">
-:root{--palette-sound:#00FF00;--palette-language:#FF0000;--palette-vision:#0000FF;}
+<style id="freia-final-palette-lock">
+:root{
+  --palette-sound:#36E6BF;
+  --palette-language:#FF4343;
+  --palette-vision:#2E63FF;
+}
 html,body,.site,.site-header{background:#fff!important;}
+/* Exact same selected v7 colour field as Services. */
+.neon-triangle-shape{
+  background-image:var(--shared-gradient-image)!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+  filter:none!important;
+}
+.legend-triangle{
+  background-image:var(--shared-gradient-image)!important;
+  background-size:100% 100%!important;
+  background-position:0 0!important;
+  background-repeat:no-repeat!important;
+}
+.neon-triangle-labels-outside .label-audio{color:var(--palette-sound)!important;}
+.neon-triangle-labels-outside .label-text{color:var(--palette-language)!important;}
+.neon-triangle-labels-outside .label-video{color:var(--palette-vision)!important;}
 </style>
 </head>
 <body id="top">
@@ -3890,7 +3911,7 @@ html,body,.site,.site-header{background:#fff!important;}
 <header class="site-header">
 <div class="shell">
 <div class="grid header-inner site-nav-grid">
-<a aria-label="frei august home" class="brand" href="index.html#about">frei august</a>
+<a aria-label="freia home" class="brand" href="index.html#about">freia</a>
 <nav class="main-nav" aria-label="Primary"><a href="index.html#about">About</a><a href="index.html#services">Services</a><a href="index.html#sustainability">Sustainability</a><a href="index.html#news">News</a><a href="index.html#contact">Contact</a></nav>
 </div>
 </div>
@@ -4030,12 +4051,12 @@ function cortexMaterial() {
   });
 }
 
-// Exact artwork-sampled palette shared with the triangle.
-// SOUND = #2D6024, LANGUAGE = #C04621, VISION = #019FBC.
+// Exact selected v7 corner palette shared with the triangles.
+// AUDIO/SOUND = #36E6BF, LANGUAGE/TEXT = #FF4343, VISION/VIDEO = #2E63FF.
 const MODAL_COLORS = {
-  video: new THREE.Color("#0000FF"),
-  audio: new THREE.Color("#00FF00"),
-  text:  new THREE.Color("#FF0000"),
+  video: new THREE.Color("#2E63FF"),
+  audio: new THREE.Color("#36E6BF"),
+  text:  new THREE.Color("#FF4343"),
   neutral: new THREE.Color("#FFFFFF")
 };
 

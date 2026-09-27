@@ -1,0 +1,63 @@
+name: Deploy freia to GitHub Pages
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate required pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in index.html about.html services.html sustainability.html sound.html language.html vision.html news.html contact.html; do
+            test -s "$f" || { echo "Missing required page: $f"; exit 1; }
+          done
+
+      - name: Build static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site/models _site/assets/sound
+          cp *.html _site/
+          cp .nojekyll _site/.nojekyll
+          cp ATTRIBUTION.md _site/ATTRIBUTION.md || true
+          cp DESIGN_SYSTEM.md _site/DESIGN_SYSTEM.md || true
+          if [ -d assets ]; then cp -R assets/. _site/assets/; fi
+
+          curl -L --fail --retry 5 --retry-delay 2 --retry-all-errors             "https://raw.githubusercontent.com/itayinbarr/brainproject/main/brain-atlas/models/brain.glb"             -o _site/models/brain.glb
+
+          curl -L --fail --retry 5 --retry-delay 2 --retry-all-errors             "https://static.common-ground.io/shops/6/items/1654858928/img-wxe7uk9Mu8.jpg"             -o _site/assets/sound/ayakashi.jpg || true
+
+          test -s _site/models/brain.glb
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

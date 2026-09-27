@@ -1,4 +1,4 @@
-# frei august — design system v55
+# freia — design system v55
 
 ## Master grid
 The site uses one 12-column modular grid across the header, About, Services, Sustainability, Sound, Language, Vision, News and Contact layouts. Spacing is tied to an 8 px baseline rhythm. Desktop content is asymmetrically aligned to shared column starts; tablet retains the 12-column structure with rebalanced spans; mobile collapses to a single reading column while preserving the same hierarchy.

@@ -1,4 +1,4 @@
-# frei august — deployment validation
+# freia — deployment validation
 
 This deployment package uses the supplied company description on `index.html` and `about.html`.
 
@@ -58,3 +58,15 @@ This deployment package uses the supplied company description on `index.html` an
 - Each triangle corner is now driven by a strongest colour.
 - Top-left: strongest green/cyan; top-right: strongest red; bottom apex: strongest blue.
 - Shared texture SHA-256: `5ba92eb58723676fcd98ae91cb651df6cd919aad0dc745870e374c434a57f1ef`.
+
+
+## freia final pass
+- Brand renamed to `freia` across HTML metadata, visible UI, docs, comments, and deployment workflow.
+- Master layout locked to a 12-column Swiss modular grid with an 8px baseline.
+- Desktop shell is edge-anchored to a fluid page margin rather than a centred max-width frame.
+- Header brand starts on column 1; navigation starts on column 2 and is left-justified.
+- Services and Sustainability visual stages each occupy columns 2–11 on desktop.
+- Selected v7 palette: SOUND `#36E6BF`, LANGUAGE `#FF4343`, VISION `#2E63FF`.
+- Services and Sustainability triangles use the same embedded v7 gradient image.
+- Both brains use the same selected v7 colour family; Sustainability endpoint colours are locked to the same three v7 anchors.
+- GitHub Pages workflow supports `main` and `master`.

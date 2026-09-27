@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>frei august — Services</title>
-<meta name="description" content="frei august — digital creative agency">
+<title>freia — Services</title>
+<meta name="description" content="freia — digital creative agency">
 <style>
 :root {
   --paper:#fff;
@@ -138,19 +138,26 @@ if (new URLSearchParams(location.search).get("embed")==="1") {
   }
 }
 </script>
+<link rel="stylesheet" href="assets/css/swiss-system.css">
+
+<style id="freia-services-grid-bridge">
+:root{--margin:var(--grid-margin);--max:100%;}
+</style>
 </head>
 <body>
 <div class="site">
-<header>
-  <div class="shell header-grid">
-    <a class="brand" href="index.html#about">frei august</a>
-    <nav aria-label="Primary">
+<header class="site-header">
+  <div class="shell">
+    <div class="grid site-nav-grid">
+    <a aria-label="freia home" class="brand" href="index.html#about">freia</a>
+    <nav class="main-nav" aria-label="Primary">
       <a href="index.html#about">About</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#sustainability">Sustainability</a>
       <a href="index.html#news">News</a>
       <a href="index.html#contact">Contact</a>
     </nav>
+    </div>
   </div>
 </header>
 

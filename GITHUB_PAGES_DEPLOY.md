@@ -1,4 +1,4 @@
-# frei august — GitHub Pages deployment
+# freia — GitHub Pages deployment
 
 1. Upload the contents of this folder to the root of your GitHub repository.
 2. In GitHub: Settings → Pages → Build and deployment → Source → GitHub Actions.

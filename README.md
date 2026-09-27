@@ -1,4 +1,9 @@
-# frei august — full GitHub Pages deployment package
+# freia — final GitHub Pages deployment package
+
+**Recommended deployment:** GitHub Desktop. See `GITHUB_DESKTOP_QUICKSTART.md`.
+
+The site uses one 12-column Swiss modular grid, an 8px baseline, and the same selected v7 colour system for the Services/Sustainability graphics.
+
 
 This is the complete deployable site package.
 
@@ -112,11 +117,11 @@ V46 final responsive pass:
 - preserves 12-column desktop/tablet grid, mobile full-width grid, safe-area insets, short-landscape handling, reduced-motion handling and responsive SoundCloud embeds
 
 
-V47: frei august brand; scroll-first index/about; Swiss primary palette; OTG Ayakashi Committee EP image/link added to Sound.
+V47: freia brand; scroll-first index/about; Swiss primary palette; OTG Ayakashi Committee EP image/link added to Sound.
 
 
 V48 update:
-- About paragraph uses the frei august wordmark treatment for the company name.
+- About paragraph uses the freia wordmark treatment for the company name.
 - Triangle and brain now share a calmer Swiss editorial palette: ochre #D2B14B, warm red #C65A50, mineral blue #3F6F8E.
 - Saturation and cortical lighting were reduced slightly for a fresher, less fluorescent result while preserving clarity.
 
@@ -155,7 +160,7 @@ The top-level typography now uses one consistent display scale across About, Ser
 
 
 ## Final company-copy + validated triangle deployment
-- Updated About text on `index.html` and `about.html` with the final frei august company description.
+- Updated About text on `index.html` and `about.html` with the final freia company description.
 - Replaced `services.html` with the validated normal equilateral triangle build.
 - Triangle and brain share the same embedded colour source.
 - See `DEPLOY_VALIDATION.md` for checks performed.
