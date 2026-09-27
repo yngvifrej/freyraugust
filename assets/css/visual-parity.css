@@ -1,11 +1,12 @@
 
-/* freia: exact visual parity between Services and Sustainability */
+/* freia — exact Services/Sustainability visual parity.
+   Both pages use the same triangle asset AND the same real 3D brain viewer. */
 :root{
   --freia-triangle-image:url("../img/triangle-shared-gradient.png");
   --freia-figure-max:780px;
 }
 
-/* Exact same triangle geometry and image. */
+/* Identical triangle geometry + identical image. */
 .triangle-frame,
 .neon-triangle-shape{
   position:absolute!important;
@@ -21,68 +22,63 @@
   background-size:100% 100%!important;
   background-position:0 0!important;
   background-repeat:no-repeat!important;
-  filter:none!important;
   opacity:1!important;
+  filter:none!important;
   z-index:1!important;
 }
 
-/* Exact same frame and exact same brain PNG on both pages. */
-.brain-static-frame{
-  position:absolute!important;
-  left:50%!important;
-  top:50%!important;
-  width:min(84%,var(--freia-figure-max))!important;
-  height:auto!important;
-  aspect-ratio:1.154700538 / 1!important;
-  transform:translate(-50%,-33.333333%)!important;
-  transform-origin:50% 33.333333%!important;
-  z-index:4!important;
-  pointer-events:none!important;
+/* No fake brain image may ever cover the anatomical model. */
+.brain-static-frame,
+.brain-fallback-frame,
+.brain-static,
+.brain-fallback{
+  display:none!important;
 }
-.brain-static{
+
+/* The actual WebGL cortical surface sits above the triangle. */
+#brainCanvas,
+.brain-stage #brainCanvas{
   position:absolute!important;
-  left:29%!important;
-  top:13%!important;
-  width:42%!important;
-  height:auto!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
   max-width:none!important;
   display:block!important;
   opacity:1!important;
-  filter:
-    drop-shadow(0 0 2px rgba(255,255,255,.96))
-    drop-shadow(0 0 1px rgba(0,0,0,.74))
-    drop-shadow(0 8px 16px rgba(0,0,0,.14))!important;
+  visibility:visible!important;
+  background:transparent!important;
+  z-index:4!important;
+  pointer-events:auto!important;
 }
 
-/* The visible central brain is intentionally the identical shared anatomical asset.
-   The existing 3D engine stays in the page code for future use, but cannot alter parity. */
-#brainCanvas,
-.brain-stage #brainCanvas{
-  opacity:0!important;
-  z-index:3!important;
-  pointer-events:none!important;
-}
-
-.brain-fallback-frame{display:none!important;}
-
+/* Labels stay above the brain. SDG nodes stay clickable above the canvas. */
 .labels-frame,
 .neon-triangle-labels-outside{
+  z-index:7!important;
+}
+.sdg-links,
+.sdg-orbit,
+.sdg-info{
   z-index:6!important;
+  pointer-events:auto;
 }
 
-/* Same responsive size rules on both pages. */
+/* Same responsive figure geometry on both pages. */
 @media(max-width:900px){
-  .triangle-frame,.neon-triangle-shape,.brain-static-frame{
+  .triangle-frame,
+  .neon-triangle-shape{
     width:min(82%,660px)!important;
   }
 }
 @media(max-width:700px){
-  .triangle-frame,.neon-triangle-shape,.brain-static-frame{
+  .triangle-frame,
+  .neon-triangle-shape{
     width:min(78vw,500px)!important;
   }
 }
 @media(max-width:430px){
-  .triangle-frame,.neon-triangle-shape,.brain-static-frame{
+  .triangle-frame,
+  .neon-triangle-shape{
     width:min(72vw,390px)!important;
   }
 }

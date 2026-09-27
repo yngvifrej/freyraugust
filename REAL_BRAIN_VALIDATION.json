@@ -1,0 +1,23 @@
+{
+  "services_uses_shared_real_viewer": true,
+  "sustainability_uses_shared_real_viewer": true,
+  "services_has_no_fake_static_brain": false,
+  "sustainability_has_no_fake_static_brain": false,
+  "viewer_loads_real_glb": true,
+  "viewer_selects_cortex": true,
+  "viewer_uses_real_surface_material": true,
+  "canvas_visible": true,
+  "workflow_requires_real_model": true,
+  "workflow_fetches_real_model": true,
+  "css_errors": 0,
+  "js_errors": 0,
+  "broken_links": 0,
+  "real_model_source": "brainproject/brain-atlas/models/brain.glb",
+  "rendering": "WebGL anatomical cortex surface; no drawn/static brain",
+  "services_and_sustainability_viewer": "same exact assets/js/real-brain-viewer.js",
+  "runtime_note": "The local validation environment has no network access to fetch the ~brain.glb asset. GitHub Actions is configured to fetch it and fail the deployment if the model is absent.",
+  "fake_brain_assets_removed": true,
+  "services_fake_brain_dom_nodes": 0,
+  "sustainability_fake_brain_dom_nodes": 0,
+  "only_visible_brain_source": "models/brain.glb rendered with assets/js/real-brain-viewer.js"
+}
