@@ -1,0 +1,17 @@
+{
+  "html_pages": 13,
+  "css_errors": 0,
+  "js_importmap_errors": 0,
+  "broken_internal_links": 0,
+  "old_name_hits": 0,
+  "browser_discrete_tests": 56,
+  "browser_width_sweep_tests": 153,
+  "horizontal_overflow_failures": 0,
+  "navigation_overlap_failures": 0,
+  "figure_centering_failures": 0,
+  "brain_visibility_failures": 0,
+  "header_shell_alignment_failures": 0,
+  "figure_label_clipping_failures": 0,
+  "services_sustainability_size_mismatch_failures": 0,
+  "max_measured_center_error_px": 0.02
+}
