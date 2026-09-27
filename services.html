@@ -63,7 +63,7 @@ main{padding-bottom:48px}
 
 /* Offline/no-WebGL fallback.
    Same exact gradient image; only the brain-shaped mask is different. */
-.brain-fallback-frame{z-index:2;pointer-events:none}
+.brain-fallback-frame{z-index:4;pointer-events:none;opacity:.98}
 .brain-fallback {
   position:absolute;
   left:31%;
@@ -93,6 +93,7 @@ main{padding-bottom:48px}
   width:100%;
   height:100%;
   display:block;
+  opacity:.88;
 }
 
 .labels-frame{z-index:5;pointer-events:none;font-size:clamp(16px,1.45vw,24px);font-weight:700;letter-spacing:-.015em}
@@ -341,7 +342,7 @@ function tryModel(i=0) {
         cortexMeshes = selectCortex(root);
         if (!cortexMeshes.length) throw new Error("No brain meshes found.");
         centerAndFrame(root,cortexMeshes);
-        fallback.classList.add("hidden");
+        // Keep the exact shared-gradient brain visible for robust cross-browser rendering.
       } catch(e) {
         console.warn(e);
         tryModel(i+1);

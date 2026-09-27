@@ -1,29 +1,56 @@
-# freia — design system v55
+# freia — Swiss Modular Web System
 
-## Master grid
-The site uses one 12-column modular grid across the header, About, Services, Sustainability, Sound, Language, Vision, News and Contact layouts. Spacing is tied to an 8 px baseline rhythm. Desktop content is asymmetrically aligned to shared column starts; tablet retains the 12-column structure with rebalanced spans; mobile collapses to a single reading column while preserving the same hierarchy.
+This package uses a single authoritative responsive grid and typographic hierarchy.
 
-## Typography
-Helvetica / Helvetica Neue / Arial fallback stack. Type hierarchy uses a bounded 1.25 modular scale as a web implementation device, with ragged-right text, controlled line length, and no decorative justification.
+## Grid
+- Desktop: 12 equal columns.
+- Baseline: 8 px.
+- Outer margin: 24–48 px, fluid with viewport width.
+- Gutter: 14–24 px.
+- Grid is viewport/left anchored rather than centred inside a narrow wrapper.
+- Maximum working width: 1920 px.
 
-## Colour
-The interface field is pure white and typography is near-black. Colour is reserved for the brain/triangle system. The three fixed colours are sampled directly from the user-provided reference artwork:
+## Header
+- `freia`: columns 1–2.
+- Primary navigation: columns 7–12 on desktop, creating a deliberate field of negative space.
+- Tablet: brand columns 1–3; navigation columns 5–12.
+- Mobile: brand first row; navigation becomes a two-column left-aligned matrix.
 
-- SOUND — green `#2D6024`
-- LANGUAGE — coral `#C04621`
-- VISION — cyan `#019FBC`
+## Type hierarchy
+The system follows a bounded major-third (approximately 1.25) scale:
+- navigation / metadata: 11–12 px
+- body: 16–18 px
+- deck: 18–22 px
+- lead: 28–42 px
+- subhead: 34–52 px
+- section heading: 58–96 px
+- display heading: 76–128 px
 
-The triangle and 3D brain read these same CSS variables, so the colour identity is shared exactly between them.
+Display headings use tight leading and tracking; prose uses generous leading and controlled line measure. All editorial text is ragged-right and left aligned.
 
+## Content placement
+- kicker/index: columns 1–2
+- main section/page title: columns 3–10
+- primary About copy: columns 3–7
+- secondary About copy: columns 9–12
+- Services and Sustainability visual fields: columns 2–11
+- desktop navigation: columns 7–12
 
-## v56 hierarchy
-Top-level section headings share one bounded fluid scale (56–112 px desktop, 48–72 px mobile), so hierarchy is created by grid position, spacing, and content rather than arbitrary heading size differences. About lead copy is 28–42 px; supporting copy is 17–21 px. The header is intentionally plain white with a single structural rule.
+No important editorial modules overlap grid columns.
 
+## Visual system
+The Services and Sustainability triangles use the exact same selected gradient field. The visible brain overlays also use that same field and mask so the palette is consistent even if WebGL or the remote 3D model fails.
 
-## v57 refinement
-All live pages now use the same 12-column grid, 8 px baseline rhythm, white field, black typographic hierarchy and unified display scale (64–128 px desktop, 52–80 px mobile). The established interactive brain and triangle are retained in Services and Sustainability, using the fixed reference-artwork palette.
+Endpoint colours:
+- Sound / green-cyan: `#36E6BF`
+- Language / red: `#FF4343`
+- Vision / blue: `#2E63FF`
 
+## Accessibility and interaction
+- keyboard focus has a visible 2 px outline
+- navigation hover/focus uses a restrained 1 px rule
+- reduced-motion preferences are respected
+- mobile navigation is not compressed into unreadably narrow columns
 
-## v58 visualisation restoration
-
-The interactive brain/triangle uses the established tractography-style RGB mapping: SOUND `#00FF00`, LANGUAGE `#FF0000`, VISION `#0000FF`. The triangle geometry is restored to the original equilateral/down-pointing construction (`aspect-ratio: 1.154700538 / 1`) and is no longer narrowed by the editorial 10-column visualisation sub-grid. The editorial 12-column grid remains in place for page typography and content. The faint header divider has been removed.
+## Implementation principle
+The final block in `assets/css/swiss-system.css` is authoritative. Earlier page-specific CSS is retained for content-specific modules, while the final block normalises the shared grid, header, typography and responsive behavior.

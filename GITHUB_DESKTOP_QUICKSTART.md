@@ -1,14 +1,13 @@
-# freia — GitHub Desktop quick start
+# Update freia with GitHub Desktop
 
-This folder is the deploy-ready website. Keep the directory structure exactly as supplied.
+1. Extract `freia_swiss_final_github_pages.zip`.
+2. In GitHub Desktop open the existing local repository `freyraugust`.
+3. Choose **Repository → Show in Finder**.
+4. Copy **the contents** of the extracted folder into the repository folder. Do not copy the outer folder itself.
+5. Replace existing files when Finder asks.
+6. Return to GitHub Desktop.
+7. Review the changed files.
+8. Commit with a message such as `Refine freia Swiss grid and visual system`.
+9. Click **Push origin**.
 
-1. In GitHub Desktop, clone your existing website repository.
-2. In GitHub Desktop choose **Repository → Show in Finder**.
-3. Extract `freia_github_pages_final.zip`.
-4. In Finder press **Command + Shift + .** once so hidden files are visible. This makes the `.github` folder visible.
-5. Copy **all contents inside the extracted folder** into the cloned repository folder. Do not put the extracted folder itself inside the repository.
-6. Return to GitHub Desktop. Review the changes, use a commit message such as `Update freia website`, click **Commit to main** (or master), then **Push origin**.
-7. On GitHub.com open the repository → **Settings → Pages** and select **GitHub Actions** as the source if it is not already selected.
-8. Open the repository **Actions** tab. The workflow named **Deploy freia to GitHub Pages** should run after the push.
-
-The deployment workflow downloads `models/brain.glb` during the GitHub Pages build, so you do not need to manually add that binary file. The `models` folder in this package should still be kept.
+Keep `.github`, `.nojekyll`, `assets`, and `models` in the repository. On macOS use **⌘ Shift .** in Finder if you need to reveal `.github`.

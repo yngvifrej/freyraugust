@@ -623,77 +623,272 @@ html,body,.site,.site-header,.content-page,.about-section,.embed-section,.text-s
   .neon-triangle-labels-outside .label-video{transform:translate(-50%,128%)!important;}
 }
 
+
 /* ================================================================
-   freia — FINAL SWISS MODULAR GRID LOCK
-   12 equal columns / 8px baseline / edge-anchored shell.
-   The header is deliberately left-weighted: brand starts at column 1,
-   navigation starts at column 2 rather than drifting toward page centre.
+   freia — AUTHORITATIVE SWISS MODULAR GRID
+   International Typographic Style translated to responsive web:
+   12-column asymmetric grid, 8px baseline, measured type hierarchy,
+   generous negative space, short readable measures and strict left alignment.
+   This block is intentionally last and therefore authoritative.
    ================================================================ */
+
 :root{
-  --grid-max:none;
-  --grid-margin:clamp(20px,2.6vw,48px);
-  --grid-gutter:clamp(12px,1.15vw,20px);
+  --grid-max:1920px;
+  --grid-margin:clamp(24px,2.8vw,48px);
+  --grid-gutter:clamp(14px,1.25vw,24px);
   --baseline:8px;
+
+  /* Major-third / 1.25-derived hierarchy, optically bounded for screens. */
+  --type-xs:clamp(11px,.72vw,12px);
+  --type-sm:clamp(13px,.84vw,15px);
+  --type-base:clamp(16px,1.02vw,18px);
+  --type-deck:clamp(18px,1.30vw,22px);
+  --type-lead:clamp(28px,2.25vw,42px);
+  --type-subhead:clamp(34px,3.0vw,52px);
+  --type-section:clamp(58px,5.6vw,96px);
+  --type-display:clamp(76px,7.4vw,128px);
+
   --palette-sound:#36E6BF;
   --palette-language:#FF4343;
   --palette-vision:#2E63FF;
 }
 
+/* Viewport-anchored rather than centre-floating.
+   On very large screens the grid stops at 1920px but remains left anchored. */
 .shell,
 .zero-only-hero{
-  width:100%!important;
-  max-width:none!important;
+  width:min(100%,var(--grid-max))!important;
+  max-width:var(--grid-max)!important;
   margin-left:0!important;
-  margin-right:0!important;
+  margin-right:auto!important;
   padding-left:max(var(--grid-margin),env(safe-area-inset-left))!important;
   padding-right:max(var(--grid-margin),env(safe-area-inset-right))!important;
 }
+
 .grid,
 .header-grid{
   display:grid!important;
   grid-template-columns:repeat(12,minmax(0,1fr))!important;
   column-gap:var(--grid-gutter)!important;
 }
-.site-nav-grid{align-items:baseline!important;row-gap:8px!important;}
+
+/* Core typography */
+html{font-family:var(--sans)!important;background:#fff!important;}
+body{
+  font-family:var(--sans)!important;
+  font-size:var(--type-base)!important;
+  line-height:1.5!important;
+  letter-spacing:-.008em!important;
+  background:#fff!important;
+  color:var(--ink)!important;
+}
+h1,h2,h3,h4,h5,h6,p,li,dt,dd{
+  text-align:left!important;
+  text-wrap:pretty;
+}
+p,li{max-width:68ch;}
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid currentColor!important;
+  outline-offset:4px!important;
+}
+
+/* Header: decisive asymmetry and a real field of negative space.
+   Brand = columns 1–2. Navigation = columns 7–12. */
 .site-header,
 header.site-header{
-  padding:24px 0 16px!important;
+  position:sticky!important;
+  top:0!important;
+  z-index:100!important;
   margin:0!important;
-  background:rgba(255,255,255,.96)!important;
+  padding:calc(var(--baseline)*3) 0 calc(var(--baseline)*2)!important;
+  background:rgba(255,255,255,.98)!important;
+  border:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.site-header .grid,
+.site-nav-grid{
+  align-items:baseline!important;
 }
 .site-header .brand{
-  grid-column:1 / span 1!important;
+  grid-column:1 / span 2!important;
   justify-self:start!important;
   align-self:baseline!important;
   margin:0!important;
+  font-size:clamp(24px,1.7vw,30px)!important;
+  line-height:.92!important;
+  font-weight:700!important;
+  letter-spacing:-.055em!important;
   white-space:nowrap!important;
 }
 .site-header .main-nav{
-  grid-column:2 / span 11!important;
-  justify-content:flex-start!important;
-  justify-self:start!important;
+  grid-column:7 / span 6!important;
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:repeat(5,max-content)!important;
+  justify-content:space-between!important;
   align-items:baseline!important;
-  gap:clamp(16px,1.55vw,30px)!important;
+  justify-self:stretch!important;
   margin:0!important;
+  padding:0!important;
+  gap:0!important;
+  font-size:var(--type-xs)!important;
+  line-height:1!important;
+  font-weight:700!important;
+  letter-spacing:.055em!important;
+  text-transform:uppercase!important;
   white-space:nowrap!important;
 }
+.site-header .main-nav a{
+  position:relative;
+  opacity:1!important;
+  padding:0 0 4px!important;
+  text-decoration:none!important;
+}
+.site-header .main-nav a::after{
+  content:"";
+  position:absolute;
+  left:0; right:100%; bottom:0;
+  height:1px;
+  background:currentColor;
+  transition:right 140ms ease;
+}
+.site-header .main-nav a:hover::after,
+.site-header .main-nav a:focus-visible::after{
+  right:0;
+}
 
-/* Editorial modules stay on the same twelve vertical lines. */
-.section-kicker,.page-kicker{grid-column:1 / span 2!important;}
-.section-title,.page-title,.embed-title{grid-column:3 / span 10!important;}
-.about-primary{grid-column:3 / span 8!important;}
-.about-secondary{grid-column:7 / span 5!important;}
-.mode-row{grid-column:3 / span 10!important;}
-.section-note{grid-column:8 / span 4!important;}
-.contact-line{grid-column:3 / span 9!important;}
+/* Hierarchy: section number/kicker occupies the margin-side columns,
+   titles begin on column 3 and never become poster-sized for their context. */
+.section-kicker,
+.page-kicker{
+  grid-column:1 / span 2!important;
+  font-size:var(--type-xs)!important;
+  line-height:1.2!important;
+  letter-spacing:.055em!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+}
+.section-title,
+.page-title{
+  grid-column:3 / span 8!important;
+  max-width:9ch!important;
+  font-size:var(--type-display)!important;
+  line-height:.88!important;
+  letter-spacing:-.06em!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+  margin-top:0!important;
+}
+.embed-title{
+  grid-column:3 / span 8!important;
+  max-width:11ch!important;
+  font-size:var(--type-section)!important;
+  line-height:.90!important;
+  letter-spacing:-.052em!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+}
 
-/* Services visual occupies the same 10-column field as Sustainability. */
+/* Text modules use separate, non-overlapping columns. */
+.about-copy,
+.media-intro{
+  row-gap:calc(var(--baseline)*6)!important;
+}
+.about-primary{
+  grid-column:3 / span 5!important;
+  max-width:30ch!important;
+  font-size:var(--type-lead)!important;
+  line-height:1.14!important;
+  letter-spacing:-.032em!important;
+}
+.about-secondary{
+  grid-column:9 / span 4!important;
+  max-width:42ch!important;
+  font-size:var(--type-deck)!important;
+  line-height:1.48!important;
+  letter-spacing:-.014em!important;
+}
+.media-intro>p:first-child{
+  grid-column:3 / span 5!important;
+  max-width:38ch!important;
+  font-size:var(--type-deck)!important;
+}
+.media-intro>.media-future{
+  grid-column:9 / span 4!important;
+  max-width:42ch!important;
+  font-size:var(--type-base)!important;
+}
+.section-note{
+  grid-column:9 / span 4!important;
+  max-width:40ch!important;
+  font-size:var(--type-base)!important;
+}
+.contact-line{
+  grid-column:3 / span 8!important;
+  max-width:24ch!important;
+  font-size:var(--type-subhead)!important;
+  line-height:1.02!important;
+  letter-spacing:-.04em!important;
+}
+.mode-row{
+  grid-column:3 / span 9!important;
+  margin-top:calc(var(--baseline)*8)!important;
+  padding-top:calc(var(--baseline)*2)!important;
+}
+
+/* Major vertical intervals are integer multiples of the 8px baseline. */
+.scroll-section{scroll-margin-top:calc(var(--baseline)*10)!important;}
+.about-section{
+  padding-top:calc(var(--baseline)*12)!important;
+  padding-bottom:calc(var(--baseline)*18)!important;
+}
+.about-copy{margin-top:calc(var(--baseline)*10)!important;}
+.embed-section{
+  padding-top:calc(var(--baseline)*10)!important;
+  padding-bottom:calc(var(--baseline)*14)!important;
+}
+.text-section{
+  padding-top:calc(var(--baseline)*14)!important;
+  padding-bottom:calc(var(--baseline)*16)!important;
+}
+.content-page{
+  padding-top:calc(var(--baseline)*12)!important;
+  padding-bottom:calc(var(--baseline)*16)!important;
+}
+.media-intro,
+.audio-list{margin-top:calc(var(--baseline)*9)!important;}
+
+/* Audio / editorial modules follow the same 12-column skeleton. */
+.audio-index{grid-column:1 / span 1!important;}
+.audio-copy{grid-column:3 / span 3!important;}
+.soundcloud-visual,
+.release-visual{grid-column:7 / span 6!important;min-width:0!important;}
+.audio-copy h2,
+.release-meta h3{
+  font-size:clamp(24px,1.9vw,32px)!important;
+  line-height:1.06!important;
+  letter-spacing:-.035em!important;
+}
+.audio-copy p,
+.release-meta p,
+.audio-link,
+.release-meta a{
+  font-size:var(--type-xs)!important;
+  line-height:1.45!important;
+  letter-spacing:.035em!important;
+}
+
+/* Services and Sustainability share the same ten-column visual field.
+   Geometry remains equilateral; no decorative frame is introduced. */
 main.shell > .hero{
   display:grid!important;
   grid-template-columns:repeat(12,minmax(0,1fr))!important;
   column-gap:var(--grid-gutter)!important;
-  place-items:initial!important;
   align-items:center!important;
+  min-width:0!important;
 }
 main.shell > .hero > .stage{
   grid-column:2 / span 10!important;
@@ -707,30 +902,100 @@ main.shell > .hero > .stage{
   grid-template-columns:repeat(12,minmax(0,1fr))!important;
   column-gap:var(--grid-gutter)!important;
 }
-.zero-only-hero .hero-zero-wrap{grid-column:2 / span 10!important;width:100%!important;min-width:0!important;}
+.zero-only-hero .hero-zero-wrap{
+  grid-column:2 / span 10!important;
+  width:100%!important;
+  min-width:0!important;
+}
 
-/* Exact selected v7 endpoint colours wherever labels use palette variables. */
+/* Colour semantics stay identical across both visualisations. */
 .neon-triangle-labels-outside .label-audio{color:var(--palette-sound)!important;}
 .neon-triangle-labels-outside .label-text{color:var(--palette-language)!important;}
 .neon-triangle-labels-outside .label-video{color:var(--palette-vision)!important;}
 
-@media(max-width:1000px){
-  :root{--grid-margin:clamp(18px,3.4vw,34px);--grid-gutter:clamp(10px,1.4vw,16px);}
-  .site-header .brand{grid-column:1 / span 2!important;}
-  .site-header .main-nav{grid-column:3 / span 10!important;gap:12px 20px!important;flex-wrap:wrap!important;}
+/* Medium screens: preserve asymmetry but reclaim width. */
+@media(max-width:1100px){
+  :root{
+    --grid-margin:clamp(20px,3.4vw,36px);
+    --grid-gutter:clamp(12px,1.5vw,18px);
+    --type-display:clamp(64px,8.5vw,94px);
+  }
+  .site-header .brand{grid-column:1 / span 3!important;}
+  .site-header .main-nav{grid-column:5 / span 8!important;}
+  .section-title,.page-title,.embed-title{grid-column:2 / span 10!important;}
+  .about-primary{grid-column:2 / span 6!important;}
+  .about-secondary{grid-column:8 / span 5!important;}
+  .media-intro>p:first-child{grid-column:2 / span 6!important;}
+  .media-intro>.media-future{grid-column:8 / span 5!important;}
+  .section-note{grid-column:8 / span 5!important;}
+  .contact-line{grid-column:2 / span 10!important;}
+  .mode-row{grid-column:2 / span 11!important;}
   main.shell > .hero > .stage,
   .zero-only-hero .hero-zero-wrap{grid-column:1 / span 12!important;}
+  .audio-copy{grid-column:2 / span 4!important;}
+  .soundcloud-visual,.release-visual{grid-column:6 / span 7!important;}
 }
+
+/* Small screens: one continuous left axis, no squeezed columns. */
 @media(max-width:700px){
-  :root{--grid-margin:max(16px,4.5vw);--grid-gutter:10px;}
-  .site-header,header.site-header{padding:max(14px,env(safe-area-inset-top)) 0 10px!important;}
-  .site-header .brand{grid-column:1 / span 12!important;}
+  :root{
+    --grid-margin:max(16px,4.6vw);
+    --grid-gutter:10px;
+    --type-display:clamp(48px,15vw,72px);
+    --type-section:clamp(42px,12vw,62px);
+    --type-lead:clamp(24px,7.2vw,32px);
+  }
+  .site-header,
+  header.site-header{
+    padding:max(16px,env(safe-area-inset-top)) 0 calc(var(--baseline)*2)!important;
+  }
+  .site-header .brand{
+    grid-column:1 / span 12!important;
+    font-size:26px!important;
+  }
   .site-header .main-nav{
     grid-column:1 / span 12!important;
-    justify-content:flex-start!important;
-    flex-wrap:wrap!important;
-    gap:8px 13px!important;
-    margin-top:8px!important;
+    margin-top:calc(var(--baseline)*2)!important;
+    width:auto!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,max-content)!important;
+    justify-content:start!important;
+    gap:10px 28px!important;
     white-space:normal!important;
+  }
+  .section-kicker,.page-kicker,
+  .section-title,.page-title,.embed-title,
+  .about-primary,.about-secondary,
+  .media-intro>p:first-child,.media-intro>.media-future,
+  .section-note,.contact-line,.mode-row{
+    grid-column:1 / span 12!important;
+  }
+  .section-title,.page-title{max-width:10ch!important;}
+  .embed-title{max-width:12ch!important;}
+  .about-primary{max-width:31ch!important;}
+  .about-secondary,.section-note,.media-intro p{max-width:44ch!important;}
+  .about-section,
+  .text-section,
+  .content-page{
+    padding-top:calc(var(--baseline)*8)!important;
+    padding-bottom:calc(var(--baseline)*10)!important;
+  }
+  .about-copy,
+  .media-intro,
+  .audio-list{margin-top:calc(var(--baseline)*6)!important;}
+  .audio-index{grid-column:1 / span 1!important;}
+  .audio-copy{grid-column:2 / span 11!important;}
+  .soundcloud-visual,.release-visual,.release-cover,.release-meta{
+    grid-column:1 / span 12!important;
+  }
+}
+
+/* Respect user motion settings without removing interaction. */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important;}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
   }
 }
