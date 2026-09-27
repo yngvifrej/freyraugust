@@ -79,9 +79,9 @@ function cortexMaterial() {
 // video = blue, audio = green, text = red.
 // These are illustrative modality weights, not measured neural activity.
 const MODAL_COLORS = {
-  video: new THREE.Color("#0057FF"),
-  audio: new THREE.Color("#00FF78"),
-  text:  new THREE.Color("#FF245F"),
+  video: new THREE.Color("#2E63FF"),
+  audio: new THREE.Color("#36E6BF"),
+  text:  new THREE.Color("#FF4343"),
   neutral: new THREE.Color("#F6F8FF")
 };
 

@@ -1,0 +1,20 @@
+{
+  "brain_palette": {
+    "vision_video": "#2E63FF",
+    "sound_audio": "#36E6BF",
+    "knowledge_text_internal": "#FF4343"
+  },
+  "triangle_palette": {
+    "vision": "#2E63FF",
+    "sound": "#36E6BF",
+    "knowledge": "#FF4343"
+  },
+  "palette_exact_match": true,
+  "viewer_logic_unchanged_except_three_color_constants": true,
+  "services_cache_bust_revision": "servbrain33-palette-match-2",
+  "sustainability_cache_bust_revision": "servbrain33-palette-match-2",
+  "css_errors": 0,
+  "js_errors": 0,
+  "broken_internal_links": 0,
+  "viewer_sha256": "61e22c745baa2517589d6170d61819baa63137f0653b8c004622234314dfb195"
+}
