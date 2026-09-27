@@ -1,0 +1,25 @@
+{
+  "exact_SERVbrain33_viewer_hash_match": true,
+  "services_has_brain_stage_class": true,
+  "sustainability_has_brain_stage_class": true,
+  "services_has_all_working_hooks": true,
+  "sustainability_has_all_working_hooks": true,
+  "both_use_same_external_viewer": true,
+  "working_upstream_model_fallback_preserved": true,
+  "working_cortex_filter_preserved": true,
+  "working_camera_scale_preserved": true,
+  "fake_brain_assets_removed": true,
+  "css_errors": 0,
+  "js_errors": 0,
+  "broken_internal_links": 0,
+  "source": "Exact Three.js module extracted from the user's working SERVbrain33 example.",
+  "source_module_sha256": "11c8e13b5929bae5b1584fd90b8af5266775241a711a7bb4643a2d291a3bc39a",
+  "packaged_module_sha256": "11c8e13b5929bae5b1584fd90b8af5266775241a711a7bb4643a2d291a3bc39a",
+  "important_difference_from_failed_versions": "The exact working DOM contract, cortex shader, camera, model scale, DRACO decoder and two-step model loader are restored without custom replacement logic.",
+  "runtime_note": "The working example itself uses ./models/brain.glb first and https://itayinbarr.github.io/brainproject/models/brain.glb as the fallback. That behavior is retained exactly.",
+  "cache_busting_revision": "servbrain33-exact-1",
+  "cache_busting_applied_to": [
+    "assets/js/real-brain-viewer.js",
+    "assets/css/visual-parity.css"
+  ]
+}

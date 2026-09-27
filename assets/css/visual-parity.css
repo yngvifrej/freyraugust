@@ -1,19 +1,20 @@
 
-/* freia — exact Services/Sustainability visual parity.
-   Both pages use the same triangle asset AND the same real 3D brain viewer. */
+/* freia — Services/Sustainability exact parity.
+   Triangle is identical on both pages.
+   Brain is the exact known-working SERVbrain33 real 3D cortex viewer. */
+
 :root{
   --freia-triangle-image:url("../img/triangle-shared-gradient.png");
   --freia-figure-max:780px;
 }
 
-/* Identical triangle geometry + identical image. */
+/* Same triangle, same geometry, same responsive size on both pages. */
 .triangle-frame,
 .neon-triangle-shape{
   position:absolute!important;
   left:50%!important;
   top:50%!important;
   width:min(84%,var(--freia-figure-max))!important;
-  height:auto!important;
   aspect-ratio:1.154700538 / 1!important;
   transform:translate(-50%,-33.333333%)!important;
   transform-origin:50% 33.333333%!important;
@@ -27,15 +28,15 @@
   z-index:1!important;
 }
 
-/* No fake brain image may ever cover the anatomical model. */
-.brain-static-frame,
-.brain-fallback-frame,
-.brain-static,
-.brain-fallback{
-  display:none!important;
+/* The exact working viewer needs the canvas to fill a positioned brain stage. */
+#brainStage,
+.brain-stage{
+  position:relative!important;
+  overflow:visible!important;
+  background:transparent!important;
+  touch-action:none;
 }
 
-/* The actual WebGL cortical surface sits above the triangle. */
 #brainCanvas,
 .brain-stage #brainCanvas{
   position:absolute!important;
@@ -48,10 +49,18 @@
   visibility:visible!important;
   background:transparent!important;
   z-index:4!important;
-  pointer-events:auto!important;
+  touch-action:none!important;
 }
 
-/* Labels stay above the brain. SDG nodes stay clickable above the canvas. */
+/* There must be no substitute/drawn brain. */
+.brain-static-frame,
+.brain-static,
+.brain-fallback-frame,
+.brain-fallback{
+  display:none!important;
+}
+
+/* Labels/SDG interface stay above the anatomical surface. */
 .labels-frame,
 .neon-triangle-labels-outside{
   z-index:7!important;
@@ -60,40 +69,21 @@
 .sdg-orbit,
 .sdg-info{
   z-index:6!important;
-  pointer-events:auto;
 }
 
-/* Same responsive figure geometry on both pages. */
+/* Identical responsive triangle sizing. */
 @media(max-width:900px){
-  .triangle-frame,
-  .neon-triangle-shape{
+  .triangle-frame,.neon-triangle-shape{
     width:min(82%,660px)!important;
   }
 }
 @media(max-width:700px){
-  .triangle-frame,
-  .neon-triangle-shape{
+  .triangle-frame,.neon-triangle-shape{
     width:min(78vw,500px)!important;
   }
 }
 @media(max-width:430px){
-  .triangle-frame,
-  .neon-triangle-shape{
+  .triangle-frame,.neon-triangle-shape{
     width:min(72vw,390px)!important;
   }
-}
-
-
-/* FINAL REAL-BRAIN VISIBILITY LOCK */
-#brainCanvas,
-.brain-stage #brainCanvas{
-  opacity:1!important;
-  visibility:visible!important;
-  display:block!important;
-  z-index:5!important;
-  mix-blend-mode:normal!important;
-  filter:none!important;
-}
-html[data-brain-status="ready"] #brainCanvas{
-  opacity:1!important;
 }
